@@ -113,6 +113,7 @@
   </worldbody>
   <contact>
     <exclude name="ex_hand_base_link_thumb_proximal_base" body1="hand_base_link" body2="thumb_proximal_base" />
+    <exclude name="ex_hand_base_link_thumb_proximal" body1="hand_base_link" body2="thumb_proximal" />
     <exclude name="ex_thumb_proximal_base_thumb_proximal" body1="thumb_proximal_base" body2="thumb_proximal" />
     <exclude name="ex_thumb_proximal_thumb_intermediate" body1="thumb_proximal" body2="thumb_intermediate" />
     <exclude name="ex_thumb_intermediate_thumb_distal" body1="thumb_intermediate" body2="thumb_distal" />

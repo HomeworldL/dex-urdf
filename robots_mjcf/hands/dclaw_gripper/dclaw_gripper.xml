@@ -1,0 +1,134 @@
+<mujoco model="dclaw_gripper">
+  <compiler angle="radian" autolimits="true" />
+  <option gravity="0 0 0" timestep="0.001" />
+  <visual>
+    <global offwidth="3840" offheight="2160" />
+  </visual>
+  <asset>
+    <mesh name="base_link" content_type="model/obj" file="meshes/visual/base_link.obj" />
+    <mesh name="base_link_cylinder_collision000" content_type="model/obj" file="meshes/collision/base_link_cylinder_collision000.obj" />
+    <mesh name="link_1" content_type="model/obj" file="meshes/visual/link_1.obj" />
+    <mesh name="link_2" content_type="model/obj" file="meshes/visual/link_2.obj" />
+    <mesh name="link_3" content_type="model/obj" file="meshes/visual/link_3.obj" />
+    <mesh name="finger_tip_collision000" content_type="model/obj" file="meshes/collision/finger_tip_collision000.obj" />
+    <material name="base_link_material" rgba="0.02352941 0.02352941 0.02352941 1" />
+    <material name="link_1_material" rgba="0.02352941 0.02352941 0.02352941 1" />
+    <material name="link_2_material" rgba="0.02352941 0.02352941 0.02352941 1" />
+    <material name="link_3_material" rgba="0.02352941 0.02352941 0.02352941 1" />
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="32" height="512" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true" />
+    <body name="hand_root">
+      <body name="base_link" quat="0.707109 0 -0.707105 0">
+        <inertial pos="0.0061371 0.00092103 0.0001376" quat="0.495846 0.868411 0 0" mass="0.23695" diaginertia="0.00032097 0.0001694 0.00016909" />
+        <geom name="base_link_base_link_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="base_link" material="base_link_material" />
+        <geom type="mesh" mesh="base_link_cylinder_collision000" group="3" />
+        <geom size="0.013 0.02 0.025" pos="0.013 -0.059 -0.012" type="box" group="3" />
+        <geom size="0.013 0.02 0.025" pos="0.013 0.02 0.058" quat="0.866025 0.500001 0 0" type="box" group="3" />
+        <geom size="0.013 0.02 0.025" pos="0.013 0.042 -0.045" quat="0.866025 -0.500001 0 0" type="box" group="3" />
+        <body name="link_f1_1" pos="0.013836 0.026467 0.054269" quat="0.258816 0.965927 0 0">
+          <inertial pos="0.052938 -0.00497139 -0.000694028" quat="-6.54887e-05 0.707107 0.00116212 0.707106" mass="0.0500998" diaginertia="1.27968e-05 1.169e-05 8.46909e-06" />
+          <joint name="joint_f1_0" pos="0 0 0" axis="0 -0.0015509 -0.999999" range="-0.524 1.32" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+          <geom name="link_f1_1_link_1_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_1" material="link_1_material" />
+          <geom size="0.029 0.019 0.015" pos="0.05 -0.005 0" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 -0.005 -0.018" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 -0.005 0.018" type="box" group="3" />
+          <body name="link_f1_2" pos="0.0684978 -0.00447059 -0.000694804">
+            <inertial pos="0.0529346 4.2066e-05 -0.000658949" quat="0.000467686 0.711493 0.000697337 0.702692" mass="0.0500998" diaginertia="1.33904e-05 1.10965e-05 8.46907e-06" />
+            <joint name="joint_f1_1" pos="0 0 0" axis="-0.0079404 0.999967 -0.00155082" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+            <geom name="link_f1_2_link_2_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_2" material="link_2_material" />
+            <geom size="0.029 0.018 0.015" pos="0.05 0 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+            <body name="link_f1_3" pos="0.0684925 0.000542552 -0.000853424">
+              <inertial pos="0.0442888 0.000352359 0.000434933" quat="-0.00227565 0.703618 0.00334478 0.710566" mass="0.0260029" diaginertia="8.6867e-06 7.1941e-06 3.47733e-06" />
+              <joint name="joint_f1_2" pos="0 0 0" axis="0.0079404 -0.999967 0.00155082" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="link_f1_3_link_3_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_3" material="link_3_material" />
+              <geom type="mesh" mesh="finger_tip_collision000" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+              <body name="link_f1_head" pos="0.084 0 0" />
+            </body>
+          </body>
+        </body>
+        <body name="link_f2_1" pos="0.0138356 0.0333216 -0.0509719" quat="0.258819 -0.965926 0 0">
+          <inertial pos="0.0529366 0.0029921 -0.000173412" quat="-0.00232949 0.707103 0.00342611 0.707098" mass="0.0500998" diaginertia="1.27968e-05 1.169e-05 8.46909e-06" />
+          <joint name="joint_f2_0" pos="0 0 0" axis="0 -0.00155087 -0.999999" range="-1.32 0.524" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+          <geom name="link_f2_1_link_1_visual" pos="0 0.008 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_1" material="link_1_material" />
+          <geom size="0.029 0.019 0.015" pos="0.05 0.003 0" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 0.003 -0.018" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 0.003 0.018" type="box" group="3" />
+          <body name="link_f2_2" pos="0.068493 0.00359253 -0.000174343">
+            <inertial pos="0.0529373 0.000382054 -3.96042e-05" quat="-0.00183051 0.707365 0.00293286 0.70684" mass="0.0500998" diaginertia="1.33904e-05 1.10965e-05 8.46907e-06" />
+            <joint name="joint_f2_1" pos="0 0 0" axis="-0.0143436 0.999896 -0.00155071" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+            <geom name="link_f2_2_link_2_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_2" material="link_2_material" />
+            <geom size="0.029 0.018 0.015" pos="0.05 0 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+            <body name="link_f2_3" pos="0.0684929 0.000982456 -5.20041e-05">
+              <inertial pos="0.0442877 0.000635363 3.24374e-05" quat="-0.00452546 0.706825 0.00561834 0.707351" mass="0.0260029" diaginertia="8.6867e-06 7.1941e-06 3.47733e-06" />
+              <joint name="joint_f2_2" pos="0 0 0" axis="0.0143436 -0.999896 0.00155071" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="link_f2_3_link_3_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_3" material="link_3_material" />
+              <geom type="mesh" mesh="finger_tip_collision000" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+              <body name="link_f2_head" pos="0.084 0 0" />
+            </body>
+          </body>
+        </body>
+        <body name="link_f3_1" pos="0.0138356 -0.0596332 0.000224327" quat="0.707107 0.707107 0 0">
+          <inertial pos="0.0529378 0.000210782 -0.000208619" quat="-0.000845634 0.707106 0.00194226 0.707104" mass="0.0500998" diaginertia="1.27968e-05 1.169e-05 8.46909e-06" />
+          <joint name="joint_f3_0" pos="0 0 0" axis="0 -0.00155087 -0.999999" range="-1.32 0.524" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+          <geom name="link_f3_1_link_1_visual" pos="0 0.005 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_1" material="link_1_material" />
+          <geom size="0.029 0.019 0.015" pos="0.05 0 0" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 0 -0.018" type="box" group="3" />
+          <geom size="0.015 0.012 0.005" pos="0.013 0 0.018" type="box" group="3" />
+          <body name="link_f3_2" pos="0.0684965 0.000745917 -0.000209449">
+            <inertial pos="0.0529381 0.000160241 0.000200254" quat="-0.000362995 0.705766 0.00143585 0.708443" mass="0.0500998" diaginertia="1.33904e-05 1.10965e-05 8.46907e-06" />
+            <joint name="joint_f3_1" pos="0 0 0" axis="-0.0101469 0.999947 -0.00155079" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+            <geom name="link_f3_2_link_2_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_2" material="link_2_material" />
+            <geom size="0.029 0.018 0.015" pos="0.05 0 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+            <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+            <body name="link_f3_3" pos="0.068496 0.00069546 0.00025837">
+              <inertial pos="0.0442683 0.000447053 -0.00138826" quat="-0.00297379 0.718091 0.00418284 0.695931" mass="0.0260029" diaginertia="8.6867e-06 7.1941e-06 3.47733e-06" />
+              <joint name="joint_f3_2" pos="0 0 0" axis="-0.010147 0.999947 -0.0015508" range="-1.57 1.57" actuatorfrcrange="-10 10" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="link_f3_3_link_3_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="link_3" material="link_3_material" />
+              <geom type="mesh" mesh="finger_tip_collision000" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 0.018 0" type="box" group="3" />
+              <geom size="0.015 0.005 0.012" pos="0.013 -0.018 0" type="box" group="3" />
+              <body name="link_f3_head" pos="0.084 0 0" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="ex_base_link_link_f1_1" body1="base_link" body2="link_f1_1" />
+    <exclude name="ex_link_f1_1_link_f1_2" body1="link_f1_1" body2="link_f1_2" />
+    <exclude name="ex_link_f1_2_link_f1_3" body1="link_f1_2" body2="link_f1_3" />
+    <exclude name="ex_link_f1_3_link_f1_head" body1="link_f1_3" body2="link_f1_head" />
+    <exclude name="ex_base_link_link_f2_1" body1="base_link" body2="link_f2_1" />
+    <exclude name="ex_link_f2_1_link_f2_2" body1="link_f2_1" body2="link_f2_2" />
+    <exclude name="ex_link_f2_2_link_f2_3" body1="link_f2_2" body2="link_f2_3" />
+    <exclude name="ex_link_f2_3_link_f2_head" body1="link_f2_3" body2="link_f2_head" />
+    <exclude name="ex_base_link_link_f3_1" body1="base_link" body2="link_f3_1" />
+    <exclude name="ex_link_f3_1_link_f3_2" body1="link_f3_1" body2="link_f3_2" />
+    <exclude name="ex_link_f3_2_link_f3_3" body1="link_f3_2" body2="link_f3_3" />
+    <exclude name="ex_link_f3_3_link_f3_head" body1="link_f3_3" body2="link_f3_head" />
+  </contact>
+  <equality />
+  <actuator>
+    <position name="joint_f1_0_actuator" joint="joint_f1_0" kp="1" ctrlrange="-0.524 1.32" />
+    <position name="joint_f1_1_actuator" joint="joint_f1_1" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f1_2_actuator" joint="joint_f1_2" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f2_0_actuator" joint="joint_f2_0" kp="1" ctrlrange="-1.32 0.524" />
+    <position name="joint_f2_1_actuator" joint="joint_f2_1" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f2_2_actuator" joint="joint_f2_2" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f3_0_actuator" joint="joint_f3_0" kp="1" ctrlrange="-1.32 0.524" />
+    <position name="joint_f3_1_actuator" joint="joint_f3_1" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f3_2_actuator" joint="joint_f3_2" kp="1" ctrlrange="-1.57 1.57" />
+  </actuator>
+</mujoco>

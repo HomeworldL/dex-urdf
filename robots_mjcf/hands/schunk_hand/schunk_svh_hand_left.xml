@@ -1,0 +1,298 @@
+<mujoco model="svh">
+  <compiler angle="radian" autolimits="true" />
+  <option gravity="0 0 0" timestep="0.001" />
+  <visual>
+    <global offwidth="3840" offheight="2160" />
+  </visual>
+  <asset>
+    <mesh name="base10" content_type="model/obj" file="meshes/visual/base10.obj" />
+    <mesh name="h10_left" content_type="model/obj" file="meshes/visual/h10_left.obj" />
+    <mesh name="h11_left" content_type="model/obj" file="meshes/visual/h11_left.obj" />
+    <mesh name="d10_left" content_type="model/obj" file="meshes/visual/d10_left.obj" />
+    <mesh name="d11_left" content_type="model/obj" file="meshes/visual/d11_left.obj" />
+    <mesh name="d11_left_collision000" content_type="model/obj" file="meshes/collision/d11_left_collision000.obj" />
+    <mesh name="d12_left" content_type="model/obj" file="meshes/visual/d12_left.obj" />
+    <mesh name="d12_left_collision000" content_type="model/obj" file="meshes/collision/d12_left_collision000.obj" />
+    <mesh name="d12_left_collision001" content_type="model/obj" file="meshes/collision/d12_left_collision001.obj" />
+    <mesh name="d12_left_collision002" content_type="model/obj" file="meshes/collision/d12_left_collision002.obj" />
+    <mesh name="d12_left_collision003" content_type="model/obj" file="meshes/collision/d12_left_collision003.obj" />
+    <mesh name="d13_left" content_type="model/obj" file="meshes/visual/d13_left.obj" />
+    <mesh name="d13_left_collision000" content_type="model/obj" file="meshes/collision/d13_left_collision000.obj" />
+    <mesh name="f10_f20" content_type="model/obj" file="meshes/visual/f10_f20.obj" />
+    <mesh name="f11" content_type="model/obj" file="meshes/visual/f11.obj" />
+    <mesh name="f11_collision000" content_type="model/obj" file="meshes/collision/f11_collision000.obj" />
+    <mesh name="f12" content_type="model/obj" file="meshes/visual/f12.obj" />
+    <mesh name="f12_collision000" content_type="model/obj" file="meshes/collision/f12_collision000.obj" />
+    <mesh name="f12_collision001" content_type="model/obj" file="meshes/collision/f12_collision001.obj" />
+    <mesh name="f12_collision002" content_type="model/obj" file="meshes/collision/f12_collision002.obj" />
+    <mesh name="f12_collision003" content_type="model/obj" file="meshes/collision/f12_collision003.obj" />
+    <mesh name="f12_collision004" content_type="model/obj" file="meshes/collision/f12_collision004.obj" />
+    <mesh name="f12_collision005" content_type="model/obj" file="meshes/collision/f12_collision005.obj" />
+    <mesh name="finger_tip" content_type="model/obj" file="meshes/visual/finger_tip.obj" />
+    <mesh name="finger_tip_collision000" content_type="model/obj" file="meshes/collision/finger_tip_collision000.obj" />
+    <mesh name="finger_tip_collision001" content_type="model/obj" file="meshes/collision/finger_tip_collision001.obj" />
+    <mesh name="f21" content_type="model/obj" file="meshes/visual/f21.obj" />
+    <mesh name="f21_collision000" content_type="model/obj" file="meshes/collision/f21_collision000.obj" />
+    <mesh name="f22_f32" content_type="model/obj" file="meshes/visual/f22_f32.obj" />
+    <mesh name="f22_f32_collision000" content_type="model/obj" file="meshes/collision/f22_f32_collision000.obj" />
+    <mesh name="f22_f32_collision001" content_type="model/obj" file="meshes/collision/f22_f32_collision001.obj" />
+    <mesh name="f22_f32_collision002" content_type="model/obj" file="meshes/collision/f22_f32_collision002.obj" />
+    <mesh name="f22_f32_collision003" content_type="model/obj" file="meshes/collision/f22_f32_collision003.obj" />
+    <mesh name="f22_f32_collision004" content_type="model/obj" file="meshes/collision/f22_f32_collision004.obj" />
+    <mesh name="f22_f32_collision005" content_type="model/obj" file="meshes/collision/f22_f32_collision005.obj" />
+    <mesh name="f30_f40" content_type="model/obj" file="meshes/visual/f30_f40.obj" />
+    <mesh name="f31" content_type="model/obj" file="meshes/visual/f31.obj" />
+    <mesh name="f31_collision000" content_type="model/obj" file="meshes/collision/f31_collision000.obj" />
+    <mesh name="f41" content_type="model/obj" file="meshes/visual/f41.obj" />
+    <mesh name="f41_collision000" content_type="model/obj" file="meshes/collision/f41_collision000.obj" />
+    <mesh name="f42" content_type="model/obj" file="meshes/visual/f42.obj" />
+    <mesh name="f42_collision000" content_type="model/obj" file="meshes/collision/f42_collision000.obj" />
+    <mesh name="f42_collision001" content_type="model/obj" file="meshes/collision/f42_collision001.obj" />
+    <mesh name="f42_collision002" content_type="model/obj" file="meshes/collision/f42_collision002.obj" />
+    <material name="base10_material" rgba="0.07058824 0.07058824 0.07058824 1" />
+    <material name="h10_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="h11_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="d10_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="d11_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="d12_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="d13_left_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f10_f20_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f11_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f12_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="finger_tip_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f21_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f22_f32_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f30_f40_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f31_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f41_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="f42_material" rgba="0.80000000 0.80784314 0.84705882 1" />
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="32" height="512" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true" />
+    <body name="hand_root">
+      <body name="left_hand_base_link" quat="0.707109 0 0 -0.707105">
+        <inertial pos="0 0 -0.009" quat="0.5 0.5 -0.5 0.5" mass="0.05" diaginertia="6.75e-05 4.21875e-05 4.21875e-05" />
+        <geom name="left_hand_base_link_base10_visual" pos="0 0 -0.032" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="base10" material="base10_material" />
+        <geom size="0.045 0.0225" pos="0 0 -0.009" type="cylinder" group="3" />
+        <body name="left_hand_e1" pos="0 -0.01313 0">
+          <inertial pos="0.004965 0.011315 0.05175" quat="0.707107 0 0 0.707107" mass="0.05" diaginertia="5.95994e-05 5.66184e-05 2.69491e-05" />
+          <geom name="left_hand_e1_h10_left_visual" pos="0 0.01313 0" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="h10_left" material="h10_left_material" />
+          <geom size="0.025 0.025 0.013" pos="0 0.01313 0.013" type="box" group="3" />
+          <geom size="0.0292 0.019 0.03205" pos="0.00573 0.0035 0.05747" type="box" group="3" />
+          <geom size="0.021 0.019 0.0075" pos="0.01 0.0035 0.096" type="box" group="3" />
+          <body name="left_hand_z" pos="0.0169 0.02626 0" quat="0.700986 -0.0923056 0.0922868 0.701129">
+            <inertial pos="0 0 0.04192" quat="0.707107 0 0 0.707107" mass="0.02604" diaginertia="4.74362e-06 3.90817e-06 3.33529e-06" />
+            <joint name="left_hand_Thumb_Opposition" pos="0 0 0" axis="0 0 1" range="0 0.9879" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+            <geom name="left_hand_z_d10_left_visual" pos="0 0 0.02442" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="d10_left" material="d10_left_material" />
+            <geom size="0.012 0.0094 0.004" pos="0 0 0.02842" type="box" group="3" />
+            <geom size="0.003 0.012 0.0165" pos="0.0125 0 0.04292" type="box" group="3" />
+            <geom size="0.003 0.012 0.0165" pos="-0.0125 0 0.04292" type="box" group="3" />
+            <body name="left_hand_a" pos="0 0 0.04596" quat="0.329787 -0.625494 0.329779 -0.625494">
+              <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.05" diaginertia="2.9528e-05 2.8422e-05 8.22154e-06" />
+              <joint name="left_hand_Thumb_Flexion" pos="0 0 0" axis="0 0 1" range="-0.9704 0" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="left_hand_a_d11_left_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="d11_left" material="d11_left_material" />
+              <geom type="mesh" mesh="d11_left_collision000" group="3" />
+              <body name="left_hand_b" pos="0.0485 0 0">
+                <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.00989645" diaginertia="2.41448e-06 1.96387e-06 5.64163e-07" />
+                <joint name="left_hand_j3" pos="0 0 0" axis="0 0 1" range="-0.98506 0" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                <geom name="left_hand_b_d12_left_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="d12_left" material="d12_left_material" />
+                <geom name="left_hand_b_collision_part000" type="mesh" mesh="d12_left_collision000" group="3" />
+                <geom name="left_hand_b_collision_part001" type="mesh" mesh="d12_left_collision001" group="3" />
+                <geom name="left_hand_b_collision_part002" type="mesh" mesh="d12_left_collision002" group="3" />
+                <geom name="left_hand_b_collision_part003" type="mesh" mesh="d12_left_collision003" group="3" />
+                <body name="left_hand_c" pos="0.03 0 0">
+                  <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-05 2e-05 1e-05" />
+                  <joint name="left_hand_j4" pos="0 0 0" axis="0 0 1" range="-1.406 0" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                  <geom name="left_hand_c_d13_left_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="d13_left" material="d13_left_material" />
+                  <geom type="mesh" mesh="d13_left_collision000" group="3" />
+                  <body name="thtip" pos="0.0275 0 0" />
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="left_hand_e2" pos="-0.0184 0.006 0.0375">
+            <inertial pos="-0.01275 0 0.02515" mass="0.05" diaginertia="2.36412e-05 2.25671e-05 9.13421e-06" />
+            <joint name="left_hand_j5" pos="0 0 0" axis="0 0 1" range="-0.98786 0" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+            <geom name="left_hand_e2_h11_left_visual" pos="0.0007 0 -0.01002" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="h11_left" material="h11_left_material" />
+            <geom size="0.0123 0.0175 0.0282" pos="-0.016 0 0.02" type="box" group="3" />
+            <geom size="0.006 0.009 0.0105" pos="-0.0032 -0.0083 0.048" type="box" group="3" />
+            <body name="left_hand_virtual_j" pos="-0.003855 -0.006 0.0655" quat="0.500048 -0.5 -0.5 -0.499952">
+              <inertial pos="0 0 -0.00321" mass="0.008" diaginertia="5.33333e-07 5.33333e-07 5.33333e-07" />
+              <joint name="left_hand_ring_spread" pos="0 0 0" axis="0 0 1" range="-0.28833 0" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+              <geom name="left_hand_virtual_j_f30_f40_visual" pos="0 0 -0.01321" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f30_f40" material="f30_f40_material" />
+              <geom size="0.01" pos="0 0 -0.00321" group="3" />
+              <body name="left_hand_j" quat="0.707141 0.707073 0 0">
+                <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.017854" diaginertia="4.02767e-06 3.84988e-06 1.12973e-06" />
+                <joint name="left_hand_Ring_Finger" pos="0 0 0" axis="0 0 1" range="0 0.98175" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+                <geom name="left_hand_j_f31_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f31" material="f31_material" />
+                <geom type="mesh" mesh="f31_collision000" group="3" />
+                <body name="left_hand_n" pos="0.05004 0 0">
+                  <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.00334494" diaginertia="2.3095e-07 1.71767e-07 9.94768e-08" />
+                  <joint name="left_hand_j12" pos="0 0 0" axis="0 0 1" range="0 1.334" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                  <geom name="left_hand_n_f22_f32_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f22_f32" material="f22_f32_material" />
+                  <geom name="left_hand_n_collision_part000" type="mesh" mesh="f22_f32_collision000" group="3" />
+                  <geom name="left_hand_n_collision_part001" type="mesh" mesh="f22_f32_collision001" group="3" />
+                  <geom name="left_hand_n_collision_part002" type="mesh" mesh="f22_f32_collision002" group="3" />
+                  <geom name="left_hand_n_collision_part003" type="mesh" mesh="f22_f32_collision003" group="3" />
+                  <geom name="left_hand_n_collision_part004" type="mesh" mesh="f22_f32_collision004" group="3" />
+                  <geom name="left_hand_n_collision_part005" type="mesh" mesh="f22_f32_collision005" group="3" />
+                  <body name="left_hand_r" pos="0.032 0 0">
+                    <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-05 2e-05 1e-05" />
+                    <joint name="left_hand_j16" pos="0 0 0" axis="0 0 1" range="0 1.395" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                    <geom name="left_hand_r_finger_tip_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_tip" material="finger_tip_material" />
+                    <geom name="left_hand_r_collision_part000" type="mesh" mesh="finger_tip_collision000" group="3" />
+                    <geom name="left_hand_r_collision_part001" type="mesh" mesh="finger_tip_collision001" group="3" />
+                    <body name="rftip" pos="0.014 0 0" />
+                  </body>
+                </body>
+              </body>
+            </body>
+            <body name="left_hand_virtual_i" pos="-0.025355 -0.006 0.056" quat="0.500048 -0.5 -0.5 -0.499952">
+              <inertial pos="0 0 -0.00321" mass="0.008" diaginertia="5.33333e-07 5.33333e-07 5.33333e-07" />
+              <joint name="left_hand_Finger_Spread" pos="0 0 0" axis="0 0 1" range="-0.5829 0" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="left_hand_virtual_i_f30_f40_visual" pos="0 0 -0.01321" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f30_f40" material="f30_f40_material" />
+              <geom size="0.01" pos="0 0 -0.00321" group="3" />
+              <body name="left_hand_i" quat="0.707141 0.707073 0 0">
+                <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.0155479" diaginertia="2.8156e-06 2.67932e-06 9.74187e-07" />
+                <joint name="left_hand_Pinky" pos="0 0 0" axis="0 0 1" range="0 0.98175" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+                <geom name="left_hand_i_f41_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f41" material="f41_material" />
+                <geom type="mesh" mesh="f41_collision000" group="3" />
+                <body name="left_hand_m" pos="0.04454 0 0">
+                  <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-06 2e-06 8e-07" />
+                  <joint name="left_hand_j13" pos="0 0 0" axis="0 0 1" range="0 1.334" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                  <geom name="left_hand_m_f42_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f42" material="f42_material" />
+                  <geom name="left_hand_m_collision_part000" type="mesh" mesh="f42_collision000" group="3" />
+                  <geom name="left_hand_m_collision_part001" type="mesh" mesh="f42_collision001" group="3" />
+                  <geom name="left_hand_m_collision_part002" type="mesh" mesh="f42_collision002" group="3" />
+                  <body name="left_hand_q" pos="0.022 0 0">
+                    <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-05 2e-05 1e-05" />
+                    <joint name="left_hand_j17" pos="0 0 0" axis="0 0 1" range="0 1.3971" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                    <geom name="left_hand_q_finger_tip_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_tip" material="finger_tip_material" />
+                    <geom name="left_hand_q_collision_part000" type="mesh" mesh="finger_tip_collision000" group="3" />
+                    <geom name="left_hand_q_collision_part001" type="mesh" mesh="finger_tip_collision001" group="3" />
+                    <body name="lftip" pos="0.014 0 0" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="left_hand_virtual_l" pos="0.025 0 0.11" quat="0.500048 0.499952 -0.5 0.5">
+            <inertial pos="0 0 0.00121" mass="0.008" diaginertia="5.33333e-07 5.33333e-07 5.33333e-07" />
+            <joint name="left_hand_index_spread" pos="0 0 0" axis="0 0 1" range="-0.28833 0" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+            <geom name="left_hand_virtual_l_f10_f20_visual" pos="0 0 0.01321" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f10_f20" material="f10_f20_material" />
+            <geom size="0.01" pos="0 0 0.00121" group="3" />
+            <body name="left_hand_l" quat="0.707141 -0.707073 0 0">
+              <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.0182123" diaginertia="4.23257e-06 4.06612e-06 1.15133e-06" />
+              <joint name="left_hand_Index_Finger_Proximal" pos="0 0 0" axis="0 0 1" range="0 0.79849" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="left_hand_l_f11_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f11" material="f11_material" />
+              <geom type="mesh" mesh="f11_collision000" group="3" />
+              <body name="left_hand_p" pos="0.04804 0 0">
+                <inertial pos="0.01 0 0" quat="0.5 0.5 0.5 0.5" mass="0.024" diaginertia="1.96667e-06 1.96667e-06 1.96667e-06" />
+                <joint name="left_hand_Index_Finger_Distal" pos="0 0 0" axis="0 0 1" range="0 1.334" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+                <geom name="left_hand_p_f12_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f12" material="f12_material" />
+                <geom name="left_hand_p_collision_part000" type="mesh" mesh="f12_collision000" group="3" />
+                <geom name="left_hand_p_collision_part001" type="mesh" mesh="f12_collision001" group="3" />
+                <geom name="left_hand_p_collision_part002" type="mesh" mesh="f12_collision002" group="3" />
+                <geom name="left_hand_p_collision_part003" type="mesh" mesh="f12_collision003" group="3" />
+                <geom name="left_hand_p_collision_part004" type="mesh" mesh="f12_collision004" group="3" />
+                <geom name="left_hand_p_collision_part005" type="mesh" mesh="f12_collision005" group="3" />
+                <body name="left_hand_t" pos="0.026 0 0">
+                  <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-05 2e-05 1e-05" />
+                  <joint name="left_hand_j14" pos="0 0 0" axis="0 0 1" range="0 1.394" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                  <geom name="left_hand_t_finger_tip_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_tip" material="finger_tip_material" />
+                  <geom name="left_hand_t_collision_part000" type="mesh" mesh="finger_tip_collision000" group="3" />
+                  <geom name="left_hand_t_collision_part001" type="mesh" mesh="finger_tip_collision001" group="3" />
+                  <body name="fftip" pos="0.014 0 0" />
+                </body>
+              </body>
+            </body>
+          </body>
+          <body name="left_hand_virtual_k" pos="0 0 0.11" quat="0.500048 0.499952 -0.5 0.5">
+            <inertial pos="0 0 0.00321" mass="0.008" diaginertia="5.33333e-07 5.33333e-07 5.33333e-07" />
+            <geom name="left_hand_virtual_k_f10_f20_visual" pos="0 0 0.01321" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f10_f20" material="f10_f20_material" />
+            <geom size="0.01" pos="0 0 0.00321" group="3" />
+            <body name="left_hand_k" quat="0.707141 -0.707073 0 0">
+              <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.0189479" diaginertia="4.71858e-06 4.54527e-06 1.1965e-06" />
+              <joint name="left_hand_Middle_Finger_Proximal" pos="0 0 0" axis="0 0 1" range="0 0.79849" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+              <geom name="left_hand_k_f21_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f21" material="f21_material" />
+              <geom type="mesh" mesh="f21_collision000" group="3" />
+              <body name="left_hand_o" pos="0.05004 0 0">
+                <inertial pos="0 0 0" quat="0 0.707107 0 0.707107" mass="0.00334494" diaginertia="2.3095e-07 1.71767e-07 9.94768e-08" />
+                <joint name="left_hand_Middle_Finger_Distal" pos="0 0 0" axis="0 0 1" range="0 1.334" actuatorfrcrange="-1000 1000" damping="0.1" armature="0.0002" frictionloss="0.0" />
+                <geom name="left_hand_o_f22_f32_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="f22_f32" material="f22_f32_material" />
+                <geom name="left_hand_o_collision_part000" type="mesh" mesh="f22_f32_collision000" group="3" />
+                <geom name="left_hand_o_collision_part001" type="mesh" mesh="f22_f32_collision001" group="3" />
+                <geom name="left_hand_o_collision_part002" type="mesh" mesh="f22_f32_collision002" group="3" />
+                <geom name="left_hand_o_collision_part003" type="mesh" mesh="f22_f32_collision003" group="3" />
+                <geom name="left_hand_o_collision_part004" type="mesh" mesh="f22_f32_collision004" group="3" />
+                <geom name="left_hand_o_collision_part005" type="mesh" mesh="f22_f32_collision005" group="3" />
+                <body name="left_hand_s" pos="0.032 0 0">
+                  <inertial pos="0.007 0 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="2e-05 2e-05 1e-05" />
+                  <joint name="left_hand_j15" pos="0 0 0" axis="0 0 1" range="0 1.334" actuatorfrcrange="-1000 1000" damping="0.0" armature="0.0" frictionloss="0.0" />
+                  <geom name="left_hand_s_finger_tip_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_tip" material="finger_tip_material" />
+                  <geom name="left_hand_s_collision_part000" type="mesh" mesh="finger_tip_collision000" group="3" />
+                  <geom name="left_hand_s_collision_part001" type="mesh" mesh="finger_tip_collision001" group="3" />
+                  <body name="mftip" pos="0.014 0 0" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="ex_left_hand_base_link_left_hand_e1" body1="left_hand_base_link" body2="left_hand_e1" />
+    <exclude name="ex_left_hand_e1_left_hand_z" body1="left_hand_e1" body2="left_hand_z" />
+    <exclude name="ex_left_hand_z_left_hand_a" body1="left_hand_z" body2="left_hand_a" />
+    <exclude name="ex_left_hand_a_left_hand_b" body1="left_hand_a" body2="left_hand_b" />
+    <exclude name="ex_left_hand_b_left_hand_c" body1="left_hand_b" body2="left_hand_c" />
+    <exclude name="ex_left_hand_c_thtip" body1="left_hand_c" body2="thtip" />
+    <exclude name="ex_left_hand_e1_left_hand_e2" body1="left_hand_e1" body2="left_hand_e2" />
+    <exclude name="ex_left_hand_e2_left_hand_virtual_j" body1="left_hand_e2" body2="left_hand_virtual_j" />
+    <exclude name="ex_left_hand_virtual_j_left_hand_j" body1="left_hand_virtual_j" body2="left_hand_j" />
+    <exclude name="ex_left_hand_j_left_hand_n" body1="left_hand_j" body2="left_hand_n" />
+    <exclude name="ex_left_hand_n_left_hand_r" body1="left_hand_n" body2="left_hand_r" />
+    <exclude name="ex_left_hand_r_rftip" body1="left_hand_r" body2="rftip" />
+    <exclude name="ex_left_hand_e2_left_hand_virtual_i" body1="left_hand_e2" body2="left_hand_virtual_i" />
+    <exclude name="ex_left_hand_virtual_i_left_hand_i" body1="left_hand_virtual_i" body2="left_hand_i" />
+    <exclude name="ex_left_hand_i_left_hand_m" body1="left_hand_i" body2="left_hand_m" />
+    <exclude name="ex_left_hand_m_left_hand_q" body1="left_hand_m" body2="left_hand_q" />
+    <exclude name="ex_left_hand_q_lftip" body1="left_hand_q" body2="lftip" />
+    <exclude name="ex_left_hand_e1_left_hand_virtual_l" body1="left_hand_e1" body2="left_hand_virtual_l" />
+    <exclude name="ex_left_hand_virtual_l_left_hand_l" body1="left_hand_virtual_l" body2="left_hand_l" />
+    <exclude name="ex_left_hand_l_left_hand_p" body1="left_hand_l" body2="left_hand_p" />
+    <exclude name="ex_left_hand_p_left_hand_t" body1="left_hand_p" body2="left_hand_t" />
+    <exclude name="ex_left_hand_t_fftip" body1="left_hand_t" body2="fftip" />
+    <exclude name="ex_left_hand_e1_left_hand_virtual_k" body1="left_hand_e1" body2="left_hand_virtual_k" />
+    <exclude name="ex_left_hand_virtual_k_left_hand_k" body1="left_hand_virtual_k" body2="left_hand_k" />
+    <exclude name="ex_left_hand_k_left_hand_o" body1="left_hand_k" body2="left_hand_o" />
+    <exclude name="ex_left_hand_o_left_hand_s" body1="left_hand_o" body2="left_hand_s" />
+    <exclude name="ex_left_hand_s_mftip" body1="left_hand_s" body2="mftip" />
+  </contact>
+  <equality>
+    <joint name="left_hand_j5_mimic" joint1="left_hand_j5" joint2="left_hand_Thumb_Opposition" polycoef="0 1 0 0 0" />
+    <joint name="left_hand_j3_mimic" joint1="left_hand_j3" joint2="left_hand_Thumb_Flexion" polycoef="0 1.01511 0 0 0" />
+    <joint name="left_hand_j4_mimic" joint1="left_hand_j4" joint2="left_hand_Thumb_Flexion" polycoef="0 1.44889 0 0 0" />
+    <joint name="left_hand_j14_mimic" joint1="left_hand_j14" joint2="left_hand_Index_Finger_Distal" polycoef="0 1.0450 0 0 0" />
+    <joint name="left_hand_j15_mimic" joint1="left_hand_j15" joint2="left_hand_Middle_Finger_Distal" polycoef="0 1.0454 0 0 0" />
+    <joint name="left_hand_j12_mimic" joint1="left_hand_j12" joint2="left_hand_Ring_Finger" polycoef="0 1.3588 0 0 0" />
+    <joint name="left_hand_j16_mimic" joint1="left_hand_j16" joint2="left_hand_Ring_Finger" polycoef="0 1.42093 0 0 0" />
+    <joint name="left_hand_j13_mimic" joint1="left_hand_j13" joint2="left_hand_Pinky" polycoef="0 1.35880 0 0 0" />
+    <joint name="left_hand_j17_mimic" joint1="left_hand_j17" joint2="left_hand_Pinky" polycoef="0 1.42307 0 0 0" />
+    <joint name="left_hand_index_spread_mimic" joint1="left_hand_index_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" />
+    <joint name="left_hand_ring_spread_mimic" joint1="left_hand_ring_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" />
+  </equality>
+  <actuator>
+    <position name="left_hand_Thumb_Flexion_actuator" joint="left_hand_Thumb_Flexion" kp="1" ctrlrange="-0.9704 0.0" />
+    <position name="left_hand_Thumb_Opposition_actuator" joint="left_hand_Thumb_Opposition" kp="1" ctrlrange="0.0 0.9879" />
+    <position name="left_hand_Index_Finger_Distal_actuator" joint="left_hand_Index_Finger_Distal" kp="1" ctrlrange="0 1.334" />
+    <position name="left_hand_Index_Finger_Proximal_actuator" joint="left_hand_Index_Finger_Proximal" kp="1" ctrlrange="0.0 0.79849" />
+    <position name="left_hand_Middle_Finger_Proximal_actuator" joint="left_hand_Middle_Finger_Proximal" kp="1" ctrlrange="0.0 0.79849" />
+    <position name="left_hand_Middle_Finger_Distal_actuator" joint="left_hand_Middle_Finger_Distal" kp="1" ctrlrange="0 1.334" />
+    <position name="left_hand_Ring_Finger_actuator" joint="left_hand_Ring_Finger" kp="1" ctrlrange="0.0 0.98175" />
+    <position name="left_hand_Pinky_actuator" joint="left_hand_Pinky" kp="1" ctrlrange="0.0 0.98175" />
+    <position name="left_hand_Finger_Spread_actuator" joint="left_hand_Finger_Spread" kp="1" ctrlrange="-0.5829 0.0" />
+  </actuator>
+</mujoco>

@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="svh">
+  <mujoco>
+    <compiler balanceinertia="true" discardvisual="false" fusestatic="false" inertiafromgeom="false" />
+  </mujoco>
+  <link name="hand_root" />
+  <joint name="hand_root_joint" type="fixed">
+    <parent link="hand_root" />
+    <child link="left_hand_base_link" />
+    <origin rpy="0 0 -1.57079" xyz="0 0 0" />
+  </joint>
+  <link name="left_hand_base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.009" />
+      <mass value="0.05" />
+      <inertia ixx="4.21875e-05" ixy="0" ixz="0" iyy="4.21875e-05" iyz="0" izz="6.75e-05" />
+    </inertial>
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <visual name="left_hand_base_link_base10_visual">
+      <origin rpy="0 0 0" xyz="0 0 -0.032" />
+      <geometry>
+        <mesh filename="meshes/visual/base10.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -0.009" />
+      <geometry>
+        <cylinder radius="0.045" length="0.045" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_e1">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.004965 0.011315 0.05175" />
+      <mass value="0.05" />
+      <inertia ixx="5.66184454e-05" ixy="0" ixz="0" iyy="5.95993954e-05" iyz="0" izz="2.69490908e-05" />
+    </inertial>
+    <visual name="left_hand_e1_h10_left_visual">
+      <origin rpy="0 0 0" xyz="0 0.01313 0" />
+      <geometry>
+        <mesh filename="meshes/visual/h10_left.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.01313 0.013" />
+      <geometry>
+        <box size="0.05 0.05 0.026" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.00573 0.0035 0.05747" />
+      <geometry>
+        <box size="0.0584 0.038 0.0641" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.01 0.0035 0.096" />
+      <geometry>
+        <box size="0.042 0.038 0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_e2">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.01275 0 0.02515" />
+      <mass value="0.05" />
+      <inertia ixx="2.36412083e-05" ixy="0" ixz="0" iyy="2.25670833e-05" iyz="0" izz="9.13420833e-06" />
+    </inertial>
+    <visual name="left_hand_e2_h11_left_visual">
+      <origin xyz="0.0007 0 -0.01002" />
+      <geometry>
+        <mesh filename="meshes/visual/h11_left.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.016 0 0.02" />
+      <geometry>
+        <box size="0.0246 0.035 0.0564" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0032 -0.0083 0.048" />
+      <geometry>
+        <box size="0.012 0.018 0.021" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_z">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.04192" />
+      <mass value="0.02604" />
+      <inertia ixx="3.90817e-06" ixy="0" ixz="0" iyy="4.74362e-06" iyz="0" izz="3.33529e-06" />
+    </inertial>
+    <visual name="left_hand_z_d10_left_visual">
+      <origin xyz="0 0 0.02442" />
+      <geometry>
+        <mesh filename="meshes/visual/d10_left.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.02842" />
+      <geometry>
+        <box size="0.024 0.0188 0.008" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0.0125 0.0 0.04292" />
+      <geometry>
+        <box size="0.006 0.024 0.033" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="-0.0125 0.0 0.04292" />
+      <geometry>
+        <box size="0.006 0.024 0.033" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_a">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.05" />
+      <inertia ixx="8.2215449e-06" ixy="0" ixz="0" iyy="2.84219785e-05" iyz="0" izz="2.95279664e-05" />
+    </inertial>
+    <visual name="left_hand_a_d11_left_visual">
+      <geometry>
+        <mesh filename="meshes/visual/d11_left.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/d11_left_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_b">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.00989645212" />
+      <inertia ixx="5.64162613e-07" ixy="0" ixz="0" iyy="1.96386511e-06" iyz="0" izz="2.41448209e-06" />
+    </inertial>
+    <visual name="left_hand_b_d12_left_visual">
+      <geometry>
+        <mesh filename="meshes/visual/d12_left.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_b_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/d12_left_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_b_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/d12_left_collision001.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_b_collision_part002">
+      <geometry>
+        <mesh filename="meshes/collision/d12_left_collision002.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_b_collision_part003">
+      <geometry>
+        <mesh filename="meshes/collision/d12_left_collision003.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_c">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="2e-5" iyz="0.0" izz="2e-5" />
+    </inertial>
+    <visual name="left_hand_c_d13_left_visual">
+      <geometry>
+        <mesh filename="meshes/visual/d13_left.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/d13_left_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_virtual_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.00121" />
+      <mass value="0.008" />
+      <inertia ixx="5.33333333e-07" ixy="0" ixz="0" iyy="5.33333333e-07" iyz="0" izz="5.33333333e-07" />
+    </inertial>
+    <visual name="left_hand_virtual_l_f10_f20_visual">
+      <origin xyz="0 0 0.01321" />
+      <geometry>
+        <mesh filename="meshes/visual/f10_f20.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.00121" />
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_l">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0182123481" />
+      <inertia ixx="1.15133466e-06" ixy="0" ixz="0" iyy="4.06612494e-06" iyz="0" izz="4.23257173e-06" />
+    </inertial>
+    <visual name="left_hand_l_f11_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f11.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/f11_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_p">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.01 0.000 0.000" />
+      <mass value="0.024" />
+      <inertia ixx="9e-7" ixy="0.0" ixz="0.0" iyy="3e-6" iyz="0.0" izz="2e-6" />
+    </inertial>
+    <visual name="left_hand_p_f12_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f12.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_p_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_p_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision001.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_p_collision_part002">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision002.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_p_collision_part003">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision003.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_p_collision_part004">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision004.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_p_collision_part005">
+      <geometry>
+        <mesh filename="meshes/collision/f12_collision005.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_t">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="2e-5" iyz="0.0" izz="2e-5" />
+    </inertial>
+    <visual name="left_hand_t_finger_tip_visual">
+      <geometry>
+        <mesh filename="meshes/visual/finger_tip.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_t_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_t_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision001.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_virtual_k">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.00321" />
+      <mass value="0.008" />
+      <inertia ixx="5.33333333e-07" ixy="0" ixz="0" iyy="5.33333333e-07" iyz="0" izz="5.33333333e-07" />
+    </inertial>
+    <visual name="left_hand_virtual_k_f10_f20_visual">
+      <origin xyz="0 0 0.01321" />
+      <geometry>
+        <mesh filename="meshes/visual/f10_f20.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.00321" />
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_k">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0189478631" />
+      <inertia ixx="1.1965006e-06" ixy="0" ixz="0" iyy="4.54526843e-06" iyz="0" izz="4.71858442e-06" />
+    </inertial>
+    <visual name="left_hand_k_f21_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f21.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/f21_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_o">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.00334494187" />
+      <inertia ixx="9.94767851e-08" ixy="0" ixz="0" iyy="1.71766621e-07" iyz="0" izz="2.3094985e-07" />
+    </inertial>
+    <visual name="left_hand_o_f22_f32_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f22_f32.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_o_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_o_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision001.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_o_collision_part002">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision002.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_o_collision_part003">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision003.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_o_collision_part004">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision004.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_o_collision_part005">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision005.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_s">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="2e-5" iyz="0.0" izz="2e-5" />
+    </inertial>
+    <visual name="left_hand_s_finger_tip_visual">
+      <geometry>
+        <mesh filename="meshes/visual/finger_tip.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_s_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_s_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision001.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_virtual_j">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.00321" />
+      <mass value="0.008" />
+      <inertia ixx="5.33333333e-07" ixy="0" ixz="0" iyy="5.33333333e-07" iyz="0" izz="5.33333333e-07" />
+    </inertial>
+    <visual name="left_hand_virtual_j_f30_f40_visual">
+      <origin xyz="0 0 -0.01321" />
+      <geometry>
+        <mesh filename="meshes/visual/f30_f40.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.00321" />
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_j">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0178539919" />
+      <inertia ixx="1.12973282e-06" ixy="0" ixz="0" iyy="3.84987621e-06" iyz="0" izz="4.02766693e-06" />
+    </inertial>
+    <visual name="left_hand_j_f31_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f31.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/f31_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_n">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.00334494187" />
+      <inertia ixx="9.94767851e-08" ixy="0" ixz="0" iyy="1.71766621e-07" iyz="0" izz="2.3094985e-07" />
+    </inertial>
+    <visual name="left_hand_n_f22_f32_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f22_f32.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_n_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_n_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision001.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_n_collision_part002">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision002.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_n_collision_part003">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision003.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_n_collision_part004">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision004.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_n_collision_part005">
+      <geometry>
+        <mesh filename="meshes/collision/f22_f32_collision005.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_r">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="2e-5" iyz="0.0" izz="2e-5" />
+    </inertial>
+    <visual name="left_hand_r_finger_tip_visual">
+      <geometry>
+        <mesh filename="meshes/visual/finger_tip.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_r_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_r_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision001.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_virtual_i">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 -0.00321" />
+      <mass value="0.008" />
+      <inertia ixx="5.33333333e-07" ixy="0" ixz="0" iyy="5.33333333e-07" iyz="0" izz="5.33333333e-07" />
+    </inertial>
+    <visual name="left_hand_virtual_i_f30_f40_visual">
+      <origin xyz="0 0 -0.01321" />
+      <geometry>
+        <mesh filename="meshes/visual/f30_f40.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.00321" />
+      <geometry>
+        <sphere radius="0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_i">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <mass value="0.0155479451" />
+      <inertia ixx="9.74187241e-07" ixy="0" ixz="0" iyy="2.67932316e-06" iyz="0" izz="2.8155997e-06" />
+    </inertial>
+    <visual name="left_hand_i_f41_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f41.obj" />
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="meshes/collision/f41_collision000.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_m">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="8e-7" ixy="0.0" ixz="0.0" iyy="2e-6" iyz="0.0" izz="2e-6" />
+    </inertial>
+    <visual name="left_hand_m_f42_visual">
+      <geometry>
+        <mesh filename="meshes/visual/f42.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_m_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/f42_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_m_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/f42_collision001.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_m_collision_part002">
+      <geometry>
+        <mesh filename="meshes/collision/f42_collision002.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hand_q">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.007 0.000 0.000" />
+      <mass value="0.02" />
+      <inertia ixx="1e-5" ixy="0.0" ixz="0.0" iyy="2e-5" iyz="0.0" izz="2e-5" />
+    </inertial>
+    <visual name="left_hand_q_finger_tip_visual">
+      <geometry>
+        <mesh filename="meshes/visual/finger_tip.obj" />
+      </geometry>
+    </visual>
+    <collision name="left_hand_q_collision_part000">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision000.obj" />
+      </geometry>
+    </collision>
+    <collision name="left_hand_q_collision_part001">
+      <geometry>
+        <mesh filename="meshes/collision/finger_tip_collision001.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hand_Thumb_Flexion" type="revolute">
+    <parent link="left_hand_z" />
+    <child link="left_hand_a" />
+    <limit effort="1000.0" lower="-0.9704" upper="0.0" velocity="1" />
+    <origin rpy="-1.57079 -0.6004 -1.57079" xyz="0 0 0.04596" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_Thumb_Opposition" type="revolute">
+    <parent link="left_hand_e1" />
+    <child link="left_hand_z" />
+    <limit effort="1000.0" lower="0.0" upper="0.9879" velocity="1" />
+    <origin rpy="0 0.2618 1.571" xyz="0.0169 0.02626 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_f4" type="fixed">
+    <parent link="left_hand_base_link" />
+    <child link="left_hand_e1" />
+    <origin rpy="0 0 0" xyz="0 -0.01313 0" />
+  </joint>
+  <joint name="left_hand_j5" type="revolute">
+    <parent link="left_hand_e1" />
+    <child link="left_hand_e2" />
+    <limit effort="1000.0" upper="0.0" lower="-0.98786" velocity="1" />
+    <origin rpy="0 0 0" xyz="-0.0184 0.006 0.0375" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Thumb_Opposition" multiplier="1" offset="0" />
+  </joint>
+  <joint name="left_hand_j3" type="revolute">
+    <parent link="left_hand_a" />
+    <child link="left_hand_b" />
+    <limit effort="1000.0" upper="0.0" lower="-0.98506" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.0485 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Thumb_Flexion" multiplier="1.01511" offset="0" />
+  </joint>
+  <joint name="left_hand_j4" type="revolute">
+    <parent link="left_hand_b" />
+    <child link="left_hand_c" />
+    <limit effort="1000.0" lower="-1.406" upper="0" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.030 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Thumb_Flexion" multiplier="1.44889" offset="0" />
+  </joint>
+  <joint name="left_hand_Index_Finger_Distal" type="revolute">
+    <parent link="left_hand_l" />
+    <child link="left_hand_p" />
+    <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.04804 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_Index_Finger_Proximal" type="revolute">
+    <parent link="left_hand_virtual_l" />
+    <child link="left_hand_l" />
+    <limit effort="1000.0" lower="0.0" upper="0.79849" velocity="1" />
+    <origin rpy="-1.5707 0 0" xyz="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_j14" type="revolute">
+    <parent link="left_hand_p" />
+    <child link="left_hand_t" />
+    <limit effort="1000.0" lower="0" upper="1.394" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.026 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Index_Finger_Distal" multiplier="1.0450" offset="0" />
+  </joint>
+  <joint name="left_hand_Middle_Finger_Proximal" type="revolute">
+    <parent link="left_hand_virtual_k" />
+    <child link="left_hand_k" />
+    <limit effort="1000.0" lower="0.0" upper="0.79849" velocity="1" />
+    <origin rpy="-1.5707 0 0" xyz="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_Middle_Finger_Distal" type="revolute">
+    <parent link="left_hand_k" />
+    <child link="left_hand_o" />
+    <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.05004 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_j15" type="revolute">
+    <parent link="left_hand_o" />
+    <child link="left_hand_s" />
+    <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.032 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Middle_Finger_Distal" multiplier="1.0454" offset="0" />
+  </joint>
+  <joint name="left_hand_Ring_Finger" type="revolute">
+    <parent link="left_hand_virtual_j" />
+    <child link="left_hand_j" />
+    <limit effort="1000.0" lower="0.0" upper="0.98175" velocity="1" />
+    <origin rpy="1.5707 0 0" xyz="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_j12" type="revolute">
+    <parent link="left_hand_j" />
+    <child link="left_hand_n" />
+    <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.05004 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Ring_Finger" multiplier="1.3588" offset="0" />
+  </joint>
+  <joint name="left_hand_j16" type="revolute">
+    <parent link="left_hand_n" />
+    <child link="left_hand_r" />
+    <limit effort="1000.0" lower="0" upper="1.395" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.032 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Ring_Finger" multiplier="1.42093" offset="0" />
+  </joint>
+  <joint name="left_hand_Pinky" type="revolute">
+    <parent link="left_hand_virtual_i" />
+    <child link="left_hand_i" />
+    <limit effort="1000.0" lower="0.0" upper="0.98175" velocity="1" />
+    <origin rpy="1.5707 0 0" xyz="0 0 0" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <joint name="left_hand_j13" type="revolute">
+    <parent link="left_hand_i" />
+    <child link="left_hand_m" />
+    <limit effort="1000.0" lower="0" upper="1.334" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.04454 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Pinky" multiplier="1.35880" offset="0" />
+  </joint>
+  <joint name="left_hand_j17" type="revolute">
+    <parent link="left_hand_m" />
+    <child link="left_hand_q" />
+    <limit effort="1000.0" lower="0" upper="1.3971" velocity="1" />
+    <origin rpy="0 0 0" xyz="0.022 0 0" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Pinky" multiplier="1.42307" offset="0" />
+  </joint>
+  <joint name="left_hand_index_spread" type="revolute">
+    <parent link="left_hand_e1" />
+    <child link="left_hand_virtual_l" />
+    <limit effort="1000.0" upper="0.0" lower="-0.28833" velocity="1" />
+    <origin rpy="0 -1.5707 1.5707" xyz="0.025 0 0.110" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Finger_Spread" multiplier="0.5" offset="0" />
+  </joint>
+  <joint name="left_hand_middle_spread_dummy" type="fixed">
+    <parent link="left_hand_e1" />
+    <child link="left_hand_virtual_k" />
+    <origin rpy="0 -1.5707 1.5707" xyz="0 0 0.110" />
+  </joint>
+  <joint name="left_hand_ring_spread" type="revolute">
+    <parent link="left_hand_e2" />
+    <child link="left_hand_virtual_j" />
+    <limit effort="1000.0" upper="0.0" lower="-0.28833" velocity="1" />
+    <origin rpy="-1.5707 -1.5707 0" xyz="-0.003855 -0.006 0.0655" />
+    <axis xyz="0 0 1" />
+    <mimic joint="left_hand_Finger_Spread" multiplier="0.5" offset="0" />
+  </joint>
+  <joint name="left_hand_Finger_Spread" type="revolute">
+    <parent link="left_hand_e2" />
+    <child link="left_hand_virtual_i" />
+    <limit effort="1000.0" upper="0.0" lower="-0.5829" velocity="1" />
+    <origin rpy="-1.5707 -1.5707 0" xyz="-0.025355 -0.006 0.056" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="thtip" />
+  <link name="fftip" />
+  <link name="mftip" />
+  <link name="rftip" />
+  <link name="lftip" />
+  <joint name="thtip_joint" type="fixed">
+    <parent link="left_hand_c" />
+    <child link="thtip" />
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="0.0275 0.000 0.000" />
+  </joint>
+  <joint name="fftip_joint" type="fixed">
+    <parent link="left_hand_t" />
+    <child link="fftip" />
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="0.014 0.000 0.000" />
+  </joint>
+  <joint name="mftip_joint" type="fixed">
+    <parent link="left_hand_s" />
+    <child link="mftip" />
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="0.014 0.000 0.000" />
+  </joint>
+  <joint name="rftip_joint" type="fixed">
+    <parent link="left_hand_r" />
+    <child link="rftip" />
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="0.014 0.000 0.000" />
+  </joint>
+  <joint name="lftip_joint" type="fixed">
+    <parent link="left_hand_q" />
+    <child link="lftip" />
+    <origin rpy="0.00000 -0.00000 0.00000" xyz="0.014 0.000 0.000" />
+  </joint>
+</robot>

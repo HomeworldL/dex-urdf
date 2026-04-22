@@ -1,0 +1,71 @@
+<mujoco model="panda_gripper">
+  <compiler angle="radian" autolimits="true" />
+  <option gravity="0 0 0" timestep="0.001" />
+  <visual>
+    <global offwidth="3840" offheight="2160" />
+  </visual>
+  <asset>
+    <mesh name="hand_visual000" content_type="model/obj" file="meshes/visual/hand_visual000.obj" />
+    <mesh name="hand_visual001" content_type="model/obj" file="meshes/visual/hand_visual001.obj" />
+    <mesh name="hand_visual002" content_type="model/obj" file="meshes/visual/hand_visual002.obj" />
+    <mesh name="hand_visual003" content_type="model/obj" file="meshes/visual/hand_visual003.obj" />
+    <mesh name="hand_visual004" content_type="model/obj" file="meshes/visual/hand_visual004.obj" />
+    <mesh name="finger_visual000" content_type="model/obj" file="meshes/visual/finger_visual000.obj" />
+    <mesh name="finger_visual001" content_type="model/obj" file="meshes/visual/finger_visual001.obj" />
+    <material name="hand_visual000_material" rgba="0.90196078 0.92156863 0.92941176 1" />
+    <material name="hand_visual001_material" rgba="0.02745098 0.02745098 0.02745098 1" />
+    <material name="hand_visual002_material" rgba="0.02745098 0.02745098 0.02745098 1" />
+    <material name="hand_visual003_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="hand_visual004_material" rgba="0.40000000 0.40000000 0.40000000 1" />
+    <material name="finger_visual000_material" rgba="0.80000000 0.80000000 0.80000000 1" />
+    <material name="finger_visual001_material" rgba="0.02745098 0.02745098 0.02745098 1" />
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="32" height="512" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true" />
+    <body name="hand_root">
+      <body name="panda_hand">
+        <inertial pos="-0.01 0 0.03" quat="0.5 0.5 0.5 0.5" mass="0.73" diaginertia="0.0025 0.0017 0.001" />
+        <geom name="panda_hand_hand_visual000" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_visual000" material="hand_visual000_material" />
+        <geom name="panda_hand_hand_visual001" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_visual001" material="hand_visual001_material" />
+        <geom name="panda_hand_hand_visual002" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_visual002" material="hand_visual002_material" />
+        <geom name="panda_hand_hand_visual003" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_visual003" material="hand_visual003_material" />
+        <geom name="panda_hand_hand_visual004" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_visual004" material="hand_visual004_material" />
+        <geom size="0.018 0.04 0.1" pos="0 0 0.02617" quat="0.707107 0.707106 0 0" type="box" group="3" />
+        <geom size="0.03 0.00385" pos="0 0 0.0003" type="cylinder" group="3" />
+        <body name="panda_hand_tcp" pos="0 0 0.1034" />
+        <body name="panda_leftfinger" pos="0 0 0.0584">
+          <inertial pos="0 0 0" mass="0.015" diaginertia="2.375e-06 2.375e-06 7.5e-07" />
+          <joint name="panda_finger_joint1" pos="0 0 0" axis="0 1 0" type="slide" range="0 0.04" actuatorfrcrange="-100 100" damping="0.1" armature="0.0002" frictionloss="0.0" />
+          <geom name="panda_leftfinger_finger_visual000" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_visual000" material="finger_visual000_material" />
+          <geom name="panda_leftfinger_finger_visual001" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_visual001" material="finger_visual001_material" />
+          <geom size="0.011 0.0075 0.01" pos="0 0.0185 0.011" type="box" group="3" />
+          <geom size="0.011 0.0044 0.0019" pos="0 0.0068 0.0022" type="box" group="3" />
+          <geom size="0.00875 0.0035 0.01175" pos="0 0.0159 0.02835" quat="0.965926 0.258819 0 0" type="box" group="3" />
+          <geom size="0.00875 0.0076 0.00925" pos="0 0.00758 0.04525" type="box" group="3" />
+        </body>
+        <body name="panda_rightfinger" pos="0 0 0.0584">
+          <inertial pos="0 0 0" mass="0.015" diaginertia="2.375e-06 2.375e-06 7.5e-07" />
+          <joint name="panda_finger_joint2" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.04" actuatorfrcrange="-100 100" damping="0.0" armature="0.0" frictionloss="0.0" />
+          <geom name="panda_rightfinger_finger_visual000" quat="0 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_visual000" material="finger_visual000_material" />
+          <geom name="panda_rightfinger_finger_visual001" quat="0 0 0 1" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="finger_visual001" material="finger_visual001_material" />
+          <geom size="0.011 0.0075 0.01" pos="0 -0.0185 0.011" type="box" group="3" />
+          <geom size="0.011 0.0044 0.0019" pos="0 -0.0068 0.0022" type="box" group="3" />
+          <geom size="0.00875 0.0035 0.01175" pos="0 -0.0159 0.02835" quat="0.965926 -0.258819 0 0" type="box" group="3" />
+          <geom size="0.00875 0.0076 0.00925" pos="0 -0.00758 0.04525" type="box" group="3" />
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="ex_panda_hand_panda_hand_tcp" body1="panda_hand" body2="panda_hand_tcp" />
+    <exclude name="ex_panda_hand_panda_leftfinger" body1="panda_hand" body2="panda_leftfinger" />
+    <exclude name="ex_panda_hand_panda_rightfinger" body1="panda_hand" body2="panda_rightfinger" />
+  </contact>
+  <equality>
+    <joint name="panda_finger_joint2_mimic" joint1="panda_finger_joint2" joint2="panda_finger_joint1" polycoef="0 1 0 0 0" />
+  </equality>
+  <actuator>
+    <position name="panda_finger_joint1_actuator" joint="panda_finger_joint1" kp="1" ctrlrange="0.0 0.04" />
+  </actuator>
+</mujoco>

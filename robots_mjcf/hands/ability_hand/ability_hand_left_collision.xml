@@ -1,0 +1,158 @@
+<mujoco model="ability_hand">
+  <compiler angle="radian" autolimits="true" />
+  <option gravity="0 0 0" timestep="0.001" />
+  <visual>
+    <global offwidth="3840" offheight="2160" />
+  </visual>
+  <asset>
+    <mesh name="wristmesh_C_collision000" content_type="model/obj" file="meshes/collision/wristmesh_C_collision000.obj" />
+    <mesh name="FB_palm_ref_collision000" content_type="model/obj" file="meshes/collision/FB_palm_ref_collision000.obj" />
+    <mesh name="FB_palm_ref_collision001" content_type="model/obj" file="meshes/collision/FB_palm_ref_collision001.obj" />
+    <mesh name="FB_palm_ref_collision002" content_type="model/obj" file="meshes/collision/FB_palm_ref_collision002.obj" />
+    <mesh name="FB_palm_ref_collision003" content_type="model/obj" file="meshes/collision/FB_palm_ref_collision003.obj" />
+    <mesh name="FB_palm_ref_collision004" content_type="model/obj" file="meshes/collision/FB_palm_ref_collision004.obj" />
+    <mesh name="thumb-F1_C_collision000" content_type="model/obj" file="meshes/collision/thumb-F1_C_collision000.obj" />
+    <mesh name="thumb-F2_C_collision000" content_type="model/obj" file="meshes/collision/thumb-F2_C_collision000.obj" />
+    <mesh name="idx-F2_C_collision000" content_type="model/obj" file="meshes/collision/idx-F2_C_collision000.obj" />
+    <mesh name="idx-F2_C_collision001" content_type="model/obj" file="meshes/collision/idx-F2_C_collision001.obj" />
+    <mesh name="idx-F2_C_collision002" content_type="model/obj" file="meshes/collision/idx-F2_C_collision002.obj" />
+    <mesh name="idx-F2_C_collision003" content_type="model/obj" file="meshes/collision/idx-F2_C_collision003.obj" />
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="1 1 1" width="32" height="512" />
+  </asset>
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true" />
+    <body name="hand_root">
+      <body name="base" quat="0.707109 0 0 -0.707105">
+        <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="0.850371 -0.0113901 -0.220517 0.47761" mass="0.2" diaginertia="0.000893087 0.000893087 0.000893087" />
+        <geom type="mesh" mesh="wristmesh_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+        <body name="thumb_base" pos="0.0240477 0.00378125 0.0323296" quat="0.0442297 0.00061027 0.999021 2.70192e-05">
+          <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="0.850371 -0.0113901 -0.220517 0.47761" mass="0.4" diaginertia="0.000893087 0.000893087 0.000893087" />
+          <geom name="thumb_base_collision_part000" type="mesh" mesh="FB_palm_ref_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+          <geom name="thumb_base_collision_part001" type="mesh" mesh="FB_palm_ref_collision001" group="1" rgba="0.9 0.35 0.1 0.65" />
+          <geom name="thumb_base_collision_part002" type="mesh" mesh="FB_palm_ref_collision002" group="1" rgba="0.9 0.35 0.1 0.65" />
+          <geom name="thumb_base_collision_part003" type="mesh" mesh="FB_palm_ref_collision003" group="1" rgba="0.9 0.35 0.1 0.65" />
+          <geom name="thumb_base_collision_part004" type="mesh" mesh="FB_palm_ref_collision004" group="1" rgba="0.9 0.35 0.1 0.65" />
+          <body name="thumb_L1" quat="-0.0942819 0 0 0.995546">
+            <inertial pos="0.014606 -0.00189085 -0.00311554" quat="0.306728 0.531258 0.293089 0.733336" mass="0.00268342" diaginertia="8.14795e-05 7.42718e-05 1.14409e-05" />
+            <joint name="thumb_q1" pos="0 0 0" axis="0 0 1" range="-2.0944 0" actuatorfrcrange="-1.2 1.2" damping="0.1" frictionloss="0.0" armature="0.0002" />
+            <geom pos="0.0278284 0 -0.0147507" quat="-0.608761 0.793353 0 0" type="mesh" mesh="thumb-F1_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <body name="thumb_L2" pos="0.0278284 0 -0.0147507" quat="-0.608761 0.793353 0 0">
+              <inertial pos="0.0300205 0.00559476 -0.00415044" quat="0.00721249 0.656735 -0.223684 0.720148" mass="0.0055" diaginertia="0.00180207 0.00170892 0.000287855" />
+              <joint name="thumb_q2" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-6 6" damping="0.1" frictionloss="0.0" armature="0.0002" />
+              <geom pos="0.0651867 0.0233402 -0.00393483" quat="3.21978e-07 0.985259 0.171069 5.59046e-08" type="mesh" mesh="thumb-F2_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <body name="thumb_tip" pos="0.065 0.016 0" />
+            </body>
+          </body>
+          <body name="index_L1" pos="-0.00949 -0.01304 -0.06295" quat="0.653556 -0.0521858 0.744129 -0.128113">
+            <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="-0.00406251 0.706621 0.00934715 0.707518" mass="0.00635888" diaginertia="0.000381765 0.000369601 2.96432e-05" />
+            <joint name="index_q1" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-6 6" damping="0.1" frictionloss="0.0" armature="0.0002" />
+            <geom size="0.0085" pos="0.036 -0.00175 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.014 0.006 0.008" pos="0.019 -0.0045 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.01 0.005 0.008" pos="0.018 0.006 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 -0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <body name="index_L2" pos="0.0384727 0.0032577 0" quat="0.999108 0 0 0.0422244">
+              <inertial pos="0.0133682 -0.00875392 -2.886e-05" quat="-0.161363 0.673074 0.216775 0.688434" mass="0.00645" diaginertia="0.000264645 0.000263553 1.71391e-05" />
+              <joint name="index_q2" pos="0 0 0" axis="0 0 1" range="0 2.6586" actuatorfrcrange="-6 6" damping="0.0" frictionloss="0.0" armature="0.0" />
+              <geom name="index_L2_collision_part000" type="mesh" mesh="idx-F2_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="index_L2_collision_part001" type="mesh" mesh="idx-F2_C_collision001" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="index_L2_collision_part002" type="mesh" mesh="idx-F2_C_collision002" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="index_L2_collision_part003" type="mesh" mesh="idx-F2_C_collision003" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom size="0.007" pos="0.03 -0.016 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <body name="index_tip" pos="0.035 -0.018 0" />
+            </body>
+          </body>
+          <body name="middle_L1" pos="0.00965319 -0.0153103 -0.0678539" quat="0.672921 -0.0756367 0.728921 -0.100652">
+            <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="-0.00406251 0.706621 0.00934715 0.707518" mass="0.00635888" diaginertia="0.000381765 0.000369601 2.96432e-05" />
+            <joint name="middle_q1" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-6 6" damping="0.1" frictionloss="0.0" armature="0.0002" />
+            <geom size="0.0085" pos="0.036 -0.00175 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.014 0.006 0.008" pos="0.019 -0.0045 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.01 0.005 0.008" pos="0.018 0.006 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 -0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <body name="middle_L2" pos="0.0384727 0.0032577 0" quat="0.999108 0 0 0.0422244">
+              <inertial pos="0.0133682 -0.00875392 -2.886e-05" quat="-0.161363 0.673074 0.216775 0.688434" mass="0.00645" diaginertia="0.000264645 0.000263553 1.71391e-05" />
+              <joint name="middle_q2" pos="0 0 0" axis="0 0 1" range="0 2.6586" actuatorfrcrange="-6 6" damping="0.0" frictionloss="0.0" armature="0.0" />
+              <geom name="middle_L2_collision_part000" type="mesh" mesh="idx-F2_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="middle_L2_collision_part001" type="mesh" mesh="idx-F2_C_collision001" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="middle_L2_collision_part002" type="mesh" mesh="idx-F2_C_collision002" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="middle_L2_collision_part003" type="mesh" mesh="idx-F2_C_collision003" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom size="0.007" pos="0.03 -0.016 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <body name="middle_tip" pos="0.035 -0.018 0" />
+            </body>
+          </body>
+          <body name="ring_L1" pos="0.0299543 -0.0142125 -0.0672861" quat="0.690473 -0.101527 0.712473 -0.072948">
+            <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="-0.00406251 0.706621 0.00934715 0.707518" mass="0.00635888" diaginertia="0.000381765 0.000369601 2.96432e-05" />
+            <joint name="ring_q1" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-6 6" damping="0.1" frictionloss="0.0" armature="0.0002" />
+            <geom size="0.0085" pos="0.036 -0.00175 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.014 0.006 0.008" pos="0.019 -0.0045 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.01 0.005 0.008" pos="0.018 0.006 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 -0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <body name="ring_L2" pos="0.0384727 0.0032577 0" quat="0.999108 0 0 0.0422244">
+              <inertial pos="0.0133682 -0.00875392 -2.886e-05" quat="-0.161363 0.673074 0.216775 0.688434" mass="0.00645" diaginertia="0.000264645 0.000263553 1.71391e-05" />
+              <joint name="ring_q2" pos="0 0 0" axis="0 0 1" range="0 2.6586" actuatorfrcrange="-6 6" damping="0.0" frictionloss="0.0" armature="0.0" />
+              <geom name="ring_L2_collision_part000" type="mesh" mesh="idx-F2_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="ring_L2_collision_part001" type="mesh" mesh="idx-F2_C_collision001" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="ring_L2_collision_part002" type="mesh" mesh="idx-F2_C_collision002" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="ring_L2_collision_part003" type="mesh" mesh="idx-F2_C_collision003" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom size="0.007" pos="0.03 -0.016 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <body name="ring_tip" pos="0.035 -0.018 0" />
+            </body>
+          </body>
+          <body name="pinky_L1" pos="0.0495213 -0.0110046 -0.0630291" quat="0.688339 -0.124214 0.712968 -0.0493647">
+            <inertial pos="0.0224191 -0.000157982 -1.31987e-05" quat="-0.00406251 0.706621 0.00934715 0.707518" mass="0.00635888" diaginertia="0.000381765 0.000369601 2.96432e-05" />
+            <joint name="pinky_q1" pos="0 0 0" axis="0 0 1" range="0 2.0944" actuatorfrcrange="-6 6" damping="0.1" frictionloss="0.0" armature="0.0002" />
+            <geom size="0.0085" pos="0.036 -0.00175 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.014 0.006 0.008" pos="0.019 -0.0045 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.01 0.005 0.008" pos="0.018 0.006 0" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <geom size="0.006 0.006 0.001" pos="-0.001 0 -0.007" quat="0.999108 0 0 0.0422374" type="box" group="1" rgba="0.9 0.35 0.1 0.65" />
+            <body name="pinky_L2" pos="0.0384727 0.0032577 0" quat="0.999108 0 0 0.0422244">
+              <inertial pos="0.0133682 -0.00875392 -2.886e-05" quat="-0.161363 0.673074 0.216775 0.688434" mass="0.00645" diaginertia="0.000264645 0.000263553 1.71391e-05" />
+              <joint name="pinky_q2" pos="0 0 0" axis="0 0 1" range="0 2.6586" actuatorfrcrange="-6 6" damping="0.0" frictionloss="0.0" armature="0.0" />
+              <geom name="pinky_L2_collision_part000" type="mesh" mesh="idx-F2_C_collision000" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="pinky_L2_collision_part001" type="mesh" mesh="idx-F2_C_collision001" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="pinky_L2_collision_part002" type="mesh" mesh="idx-F2_C_collision002" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom name="pinky_L2_collision_part003" type="mesh" mesh="idx-F2_C_collision003" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <geom size="0.007" pos="0.03 -0.016 0" group="1" rgba="0.9 0.35 0.1 0.65" />
+              <body name="pinky_tip" pos="0.035 -0.018 0" />
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="ex_base_thumb_base" body1="base" body2="thumb_base" />
+    <exclude name="ex_thumb_base_thumb_L1" body1="thumb_base" body2="thumb_L1" />
+    <exclude name="ex_thumb_L1_thumb_L2" body1="thumb_L1" body2="thumb_L2" />
+    <exclude name="ex_thumb_L2_thumb_tip" body1="thumb_L2" body2="thumb_tip" />
+    <exclude name="ex_thumb_base_index_L1" body1="thumb_base" body2="index_L1" />
+    <exclude name="ex_index_L1_index_L2" body1="index_L1" body2="index_L2" />
+    <exclude name="ex_index_L2_index_tip" body1="index_L2" body2="index_tip" />
+    <exclude name="ex_thumb_base_middle_L1" body1="thumb_base" body2="middle_L1" />
+    <exclude name="ex_middle_L1_middle_L2" body1="middle_L1" body2="middle_L2" />
+    <exclude name="ex_middle_L2_middle_tip" body1="middle_L2" body2="middle_tip" />
+    <exclude name="ex_thumb_base_ring_L1" body1="thumb_base" body2="ring_L1" />
+    <exclude name="ex_ring_L1_ring_L2" body1="ring_L1" body2="ring_L2" />
+    <exclude name="ex_ring_L2_ring_tip" body1="ring_L2" body2="ring_tip" />
+    <exclude name="ex_thumb_base_pinky_L1" body1="thumb_base" body2="pinky_L1" />
+    <exclude name="ex_pinky_L1_pinky_L2" body1="pinky_L1" body2="pinky_L2" />
+    <exclude name="ex_pinky_L2_pinky_tip" body1="pinky_L2" body2="pinky_tip" />
+  </contact>
+  <equality>
+    <joint name="index_q2_mimic" joint1="index_q2" joint2="index_q1" polycoef="0.72349796 1.05851325 0 0 0" />
+    <joint name="middle_q2_mimic" joint1="middle_q2" joint2="middle_q1" polycoef="0.72349796 1.05851325 0 0 0" />
+    <joint name="ring_q2_mimic" joint1="ring_q2" joint2="ring_q1" polycoef="0.72349796 1.05851325 0 0 0" />
+    <joint name="pinky_q2_mimic" joint1="pinky_q2" joint2="pinky_q1" polycoef="0.72349796 1.05851325 0 0 0" />
+  </equality>
+  <actuator>
+    <position name="thumb_q1_actuator" joint="thumb_q1" kp="1" ctrlrange="-2.0943951 0" />
+    <position name="thumb_q2_actuator" joint="thumb_q2" kp="1" ctrlrange="0 2.0943951" />
+    <position name="index_q1_actuator" joint="index_q1" kp="1" ctrlrange="0 2.0943951" />
+    <position name="middle_q1_actuator" joint="middle_q1" kp="1" ctrlrange="0 2.0943951" />
+    <position name="ring_q1_actuator" joint="ring_q1" kp="1" ctrlrange="0 2.0943951" />
+    <position name="pinky_q1_actuator" joint="pinky_q1" kp="1" ctrlrange="0 2.0943951" />
+  </actuator>
+</mujoco>

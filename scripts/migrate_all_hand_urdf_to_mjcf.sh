@@ -21,6 +21,19 @@ append_unique() {
   SOURCES+=("${value}")
 }
 
+infer_side() {
+  local source_path="$1"
+  local base
+  base="$(basename "${source_path}" .urdf)"
+  if [[ "${base}" == *_left* ]]; then
+    echo "left"
+  elif [[ "${base}" == *_right* ]]; then
+    echo "right"
+  else
+    echo "right"
+  fi
+}
+
 echo "[info] writing logs to ${LOG_DIR}"
 
 while IFS= read -r -d '' hand_dir; do
@@ -45,9 +58,10 @@ while IFS= read -r -d '' hand_dir; do
     rel_source="${source_urdf#${ROOT_DIR}/}"
     log_name="${safe_hand_name}__$(basename "${source_urdf}" .urdf).log"
     log_path="${LOG_DIR}/${log_name}"
+    side="$(infer_side "${source_urdf}")"
 
     printf '[run] %s <- %s\n' "${hand_name}" "${rel_source}" | tee -a "${SUMMARY}"
-    if python "${MIGRATE}" --hand-name "${hand_name}" --source-urdf "${source_urdf}" >"${log_path}" 2>&1 &&
+    if python "${MIGRATE}" --hand-name "${hand_name}" --side "${side}" >"${log_path}" 2>&1 &&
       ! grep -q '^\[warn\]' "${log_path}"; then
       printf '[ok]  %s <- %s\n' "${hand_name}" "${rel_source}" | tee -a "${SUMMARY}"
     else

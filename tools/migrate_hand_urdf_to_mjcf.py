@@ -190,6 +190,8 @@ def patch_geom_groups(mjcf_root: ET.Element) -> None:
 def patch_contact_excludes(mjcf_root: ET.Element) -> None:
     contact = ET.Element("contact")
     for body1, body2 in _body_parent_pairs(mjcf_root):
+        if body1 == "hand_root" or body2 == "hand_root":
+            continue
         ET.SubElement(contact, "exclude", name=f"ex_{body1}_{body2}", body1=body1, body2=body2)
     _replace_child(mjcf_root, "contact", contact)
 

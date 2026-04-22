@@ -1,3 +1,5 @@
+Fork note: this fork mainly adds a hand-focused URDF-to-MJCF migration pipeline (asset export, material patching, collision-only XML generation, and batch conversion scripts) under `tools/` and `scripts/`.
+
 This repository offers an assortment of high-quality models for dexterous hands and objects. Both of them are in URDF
 format.
 

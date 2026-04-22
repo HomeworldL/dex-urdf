@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import copy
 import argparse
-import shutil
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,12 +20,11 @@ from trimesh.exchange.obj import export_obj
 class Config:
     hand_name: str
     side: str = "all"  # all | right | left
-    source_urdf: Optional[str] = None
     output_root: str = "robots_mjcf/hands"
     clean_output: bool = True
     try_compile_mjcf: bool = True
     patch_mjcf: bool = True
-    kp: float = 10.0
+    kp: float = 1.0
 
 
 #############
@@ -285,18 +283,7 @@ def _pick_side_source_urdf(hand_dir: Path, hand_name: str, side: str) -> Optiona
     return None
 
 
-def _infer_side_from_path(path: Path) -> str:
-    name = path.stem
-    if "_left" in name:
-        return "left"
-    if "_right" in name:
-        return "right"
-    return "right"
-
-
 def _sides_to_process(cfg: Config, hand_dir: Path) -> List[str]:
-    if cfg.source_urdf:
-        return [_infer_side_from_path(Path(cfg.source_urdf))]
     if cfg.side in {"right", "left"}:
         return [cfg.side]
     if cfg.side != "all":
@@ -330,10 +317,6 @@ def _load_meshes(mesh_path: Path) -> List[trimesh.Trimesh]:
     if isinstance(mesh, trimesh.Trimesh) and len(mesh.faces) > 0:
         return [mesh]
     return []
-
-
-def _mesh_output_name(src_rel: str, suffix: str) -> str:
-    return f"{Path(src_rel).stem}{suffix}"
 
 
 def _check_unique_output(seen: Dict[str, str], src_rel: str, output_name: str) -> None:
@@ -383,22 +366,73 @@ def _write_obj_with_unique_assets(
         (dst_mesh.parent / name).write_text(text)
 
 
-def _export_visual_obj(src_mesh: Path, dst_mesh: Path) -> Path:
-    """Export one visual OBJ/MTL per source mesh and keep only MTL color data."""
+def _scaled_mesh(mesh: trimesh.Trimesh, scale: Tuple[float, float, float]) -> trimesh.Trimesh:
+    scaled = mesh.copy()
+    scaled.apply_scale(scale)
+    return scaled
+
+
+def _export_plain_obj(
+    src_mesh: Path,
+    dst_mesh: Path,
+    scale: Tuple[float, float, float],
+    include_materials: bool,
+) -> Path:
+    meshes = _load_meshes(src_mesh)
+    if not meshes:
+        raise RuntimeError(f"No valid mesh geometry in {src_mesh}")
+    merged = meshes[0] if len(meshes) == 1 else trimesh.util.concatenate(meshes)
+    _write_obj_with_unique_assets(_scaled_mesh(merged, scale), dst_mesh, include_materials=include_materials)
+    return dst_mesh
+
+
+def _is_valid_visual_mesh(mesh: trimesh.Trimesh) -> bool:
+    if len(mesh.faces) < 4 or len(mesh.vertices) < 4:
+        return False
+
+    vertices = np.unique(np.asarray(mesh.vertices, dtype=float), axis=0)
+    if len(vertices) < 4:
+        return False
+
+    extents = np.ptp(vertices, axis=0)
+    rank_scale = max(float(extents.max()), 1.0)
+    rank = np.linalg.matrix_rank(vertices - vertices.mean(axis=0), tol=rank_scale * 1e-9)
+    if rank < 3:
+        return False
+
+    try:
+        return float(mesh.convex_hull.volume) >= 1e-12
+    except Exception:  # noqa: BLE001
+        return False
+
+
+def _export_visual_objs(
+    src_mesh: Path,
+    dst_dir: Path,
+    base_name: str,
+    scale: Tuple[float, float, float],
+) -> List[Path]:
+    """Export one OBJ/MTL for each visual geometry to preserve per-part colors."""
     if src_mesh.suffix.lower() == ".obj":
-        shutil.copy2(src_mesh, dst_mesh)
-        mtl = src_mesh.with_suffix(".mtl")
-        if mtl.exists():
-            shutil.copy2(mtl, dst_mesh.with_suffix(".mtl"))
-        return dst_mesh
+        dst_mesh = dst_dir / f"{base_name}.obj"
+        dst_mesh.parent.mkdir(parents=True, exist_ok=True)
+        return [_export_plain_obj(src_mesh, dst_mesh, scale, include_materials=True)]
 
     meshes = _load_meshes(src_mesh)
     if not meshes:
         raise RuntimeError(f"No valid mesh geometry in {src_mesh}")
+    meshes = [_scaled_mesh(mesh, scale) for mesh in meshes]
+    meshes = [mesh for mesh in meshes if _is_valid_visual_mesh(mesh)]
+    if not meshes:
+        raise RuntimeError(f"No valid visual mesh geometry in {src_mesh}")
 
-    merged = meshes[0] if len(meshes) == 1 else trimesh.util.concatenate(meshes)
-    _write_obj_with_unique_assets(merged, dst_mesh, include_materials=True)
-    return dst_mesh
+    out_files: List[Path] = []
+    for i, mesh in enumerate(meshes):
+        output_name = f"{base_name}.obj" if len(meshes) == 1 else f"{base_name}_visual{i:03d}.obj"
+        dst_mesh = dst_dir / output_name
+        _write_obj_with_unique_assets(mesh, dst_mesh, include_materials=True)
+        out_files.append(dst_mesh)
+    return out_files
 
 
 def _parse_mesh_scale(scale: Optional[str]) -> Tuple[float, float, float]:
@@ -410,7 +444,7 @@ def _parse_mesh_scale(scale: Optional[str]) -> Tuple[float, float, float]:
     return (values[0], values[1], values[2])
 
 
-def _is_valid_collision_mesh(mesh: trimesh.Trimesh, mesh_scale: Tuple[float, float, float]) -> bool:
+def _is_valid_collision_mesh(mesh: trimesh.Trimesh) -> bool:
     """Reject split collision pieces that are too flat or too small for MuJoCo/QHull."""
     if len(mesh.faces) < 4 or len(mesh.vertices) < 4:
         return False
@@ -426,10 +460,8 @@ def _is_valid_collision_mesh(mesh: trimesh.Trimesh, mesh_scale: Tuple[float, flo
     if rank < 3:
         return False
 
-    scaled_mesh = mesh.copy()
-    scaled_mesh.vertices = np.asarray(scaled_mesh.vertices, dtype=float) * np.asarray(mesh_scale, dtype=float)
     try:
-        return float(scaled_mesh.convex_hull.volume) >= 1e-12
+        return float(mesh.convex_hull.volume) >= 1e-12
     except Exception:  # noqa: BLE001
         return False
 
@@ -443,10 +475,11 @@ def _split_obj_by_object(src_mesh: Path, dst_dir: Path, base_name: str, scale: T
 
     meshes: List[trimesh.Trimesh] = []
     for mesh in loaded_meshes:
-        parts = [part for part in mesh.split(only_watertight=False) if _is_valid_collision_mesh(part, scale)]
+        mesh = _scaled_mesh(mesh, scale)
+        parts = [part for part in mesh.split(only_watertight=False) if _is_valid_collision_mesh(part)]
         if 1 < len(parts) <= 64:
             meshes.extend(parts)
-        elif _is_valid_collision_mesh(mesh, scale):
+        elif _is_valid_collision_mesh(mesh):
             meshes.append(mesh)
 
     out_files: List[Path] = []
@@ -461,23 +494,53 @@ def _rewrite_visual_meshes(
     root: ET.Element,
     src_urdf_dir: Path,
     dst_visual_dir: Path,
-) -> Dict[str, str]:
-    remap: Dict[str, str] = {}
+) -> Dict[str, List[str]]:
+    remap: Dict[str, List[str]] = {}
     seen_outputs: Dict[str, str] = {}
-    for mesh in root.findall(".//visual/geometry/mesh"):
-        src_rel = mesh.attrib.get("filename")
-        if not src_rel:
-            continue
 
-        if src_rel not in remap:
-            src_abs = (src_urdf_dir / src_rel).resolve()
-            output_name = _mesh_output_name(src_rel, ".obj")
-            _check_unique_output(seen_outputs, src_rel, output_name)
-            dst_abs = dst_visual_dir / output_name
-            out = _export_visual_obj(src_abs, dst_abs)
-            remap[src_rel] = str(Path("meshes") / "visual" / out.name)
+    for link in root.findall(".//link"):
+        new_children = []
+        for child in list(link):
+            if child.tag != "visual":
+                new_children.append(child)
+                continue
 
-        mesh.attrib["filename"] = remap[src_rel]
+            geom = child.find("geometry")
+            mesh = geom.find("mesh") if geom is not None else None
+            src_rel = mesh.attrib.get("filename") if mesh is not None else None
+            if not src_rel:
+                new_children.append(child)
+                continue
+
+            if src_rel not in remap:
+                src_abs = (src_urdf_dir / src_rel).resolve()
+                base_name = Path(src_rel).stem
+                mesh_scale = _parse_mesh_scale(mesh.attrib.get("scale") if mesh is not None else None)
+                out_files = _export_visual_objs(src_abs, dst_visual_dir, base_name, mesh_scale)
+                remap[src_rel] = []
+                for out in out_files:
+                    _check_unique_output(seen_outputs, src_rel, out.name)
+                    remap[src_rel].append(str(Path("meshes") / "visual" / out.name))
+
+            out_refs = remap[src_rel]
+            link_name = link.attrib.get("name", "link")
+            visual_base_name = Path(src_rel).stem
+            if len(out_refs) == 1:
+                child.attrib["name"] = f"{link_name}_{visual_base_name}_visual"
+                mesh.attrib["filename"] = out_refs[0]
+                mesh.attrib.pop("scale", None)
+                new_children.append(child)
+                continue
+
+            for i, out_ref in enumerate(out_refs):
+                visual = copy.deepcopy(child)
+                visual.attrib["name"] = f"{link_name}_{visual_base_name}_visual{i:03d}"
+                visual_mesh = visual.find("geometry").find("mesh")
+                visual_mesh.attrib["filename"] = out_ref
+                visual_mesh.attrib.pop("scale", None)
+                new_children.append(visual)
+
+        link[:] = new_children
     return remap
 
 
@@ -520,9 +583,9 @@ def _rewrite_collision_meshes(
                 continue
 
             if len(out_files) == 1:
-                child.find("geometry").find("mesh").attrib["filename"] = str(
-                    Path("meshes") / "collision" / out_files[0].name
-                )
+                child_mesh = child.find("geometry").find("mesh")
+                child_mesh.attrib["filename"] = str(Path("meshes") / "collision" / out_files[0].name)
+                child_mesh.attrib.pop("scale", None)
                 new_children.append(child)
                 continue
 
@@ -531,7 +594,9 @@ def _rewrite_collision_meshes(
                 c_name = c.attrib.get("name", "collision")
                 link_name = link.attrib.get("name", "link")
                 c.attrib["name"] = f"{link_name}_{c_name}_part{i:03d}"
-                c.find("geometry").find("mesh").attrib["filename"] = str(Path("meshes") / "collision" / out.name)
+                c_mesh = c.find("geometry").find("mesh")
+                c_mesh.attrib["filename"] = str(Path("meshes") / "collision" / out.name)
+                c_mesh.attrib.pop("scale", None)
                 new_children.append(c)
 
         link[:] = new_children
@@ -982,10 +1047,7 @@ def _clean_generated_outputs(dst_root: Path, output_stem: str, source_stem: str,
 
 def _process_side(cfg: Config, repo_root: Path, hand_dir: Path, side: str) -> None:
     """Run the full URDF asset rewrite, MuJoCo compile, and MJCF post-process pipeline."""
-    if cfg.source_urdf:
-        src_urdf = Path(cfg.source_urdf).resolve()
-    else:
-        src_urdf = _pick_source_urdf(hand_dir, cfg.hand_name, side)
+    src_urdf = _pick_source_urdf(hand_dir, cfg.hand_name, side)
 
     dst_root = (repo_root / cfg.output_root / cfg.hand_name).resolve()
     dst_visual_dir = dst_root / "meshes" / "visual"
@@ -1073,7 +1135,6 @@ def _parse_args() -> Config:
     parser = argparse.ArgumentParser(description="Migrate a hand URDF into MJCF-friendly assets")
     parser.add_argument("--hand-name", required=True)
     parser.add_argument("--side", default="all", choices=["all", "right", "left"])
-    parser.add_argument("--source-urdf", default=None)
     parser.add_argument("--output-root", default="robots_mjcf/hands")
     parser.add_argument(
         "--clean-output",
@@ -1090,12 +1151,11 @@ def _parse_args() -> Config:
         action=argparse.BooleanOptionalAction,
         default=True,
     )
-    parser.add_argument("--kp", type=float, default=10.0)
+    parser.add_argument("--kp", type=float, default=1.0)
     args = parser.parse_args()
     return Config(
         hand_name=args.hand_name,
         side=args.side,
-        source_urdf=args.source_urdf,
         output_root=args.output_root,
         clean_output=args.clean_output,
         try_compile_mjcf=args.try_compile_mjcf,

@@ -44,6 +44,9 @@ MIMIC_EQUALITY_ATTRS = {
     "solref": "0.002 1",
     "solimp": "0.9 0.99 0.001",
 }
+POSITION_ACTUATOR_ATTRS = {
+    "forcerange": "-1 1",
+}
 
 
 def _joint_limits(urdf_root: ET.Element) -> Dict[str, Tuple[str, str]]:
@@ -227,6 +230,7 @@ def patch_actuators(
             "name": f"{joint_name}_actuator",
             "joint": joint_name,
             "kp": f"{kp:g}",
+            **POSITION_ACTUATOR_ATTRS,
         }
         if joint_name in joint_limits:
             attrs["ctrlrange"] = f"{joint_limits[joint_name][0]} {joint_limits[joint_name][1]}"

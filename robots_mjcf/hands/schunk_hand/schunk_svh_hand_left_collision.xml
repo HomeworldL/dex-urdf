@@ -228,14 +228,14 @@
     <joint name="left_hand_ring_spread_mimic" joint1="left_hand_ring_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
   </equality>
   <actuator>
-    <position name="left_hand_Thumb_Flexion_actuator" joint="left_hand_Thumb_Flexion" kp="1" ctrlrange="-0.9704 0.0" />
-    <position name="left_hand_Thumb_Opposition_actuator" joint="left_hand_Thumb_Opposition" kp="1" ctrlrange="0.0 0.9879" />
-    <position name="left_hand_Index_Finger_Distal_actuator" joint="left_hand_Index_Finger_Distal" kp="1" ctrlrange="0 1.334" />
-    <position name="left_hand_Index_Finger_Proximal_actuator" joint="left_hand_Index_Finger_Proximal" kp="1" ctrlrange="0.0 0.79849" />
-    <position name="left_hand_Middle_Finger_Proximal_actuator" joint="left_hand_Middle_Finger_Proximal" kp="1" ctrlrange="0.0 0.79849" />
-    <position name="left_hand_Middle_Finger_Distal_actuator" joint="left_hand_Middle_Finger_Distal" kp="1" ctrlrange="0 1.334" />
-    <position name="left_hand_Ring_Finger_actuator" joint="left_hand_Ring_Finger" kp="1" ctrlrange="0.0 0.98175" />
-    <position name="left_hand_Pinky_actuator" joint="left_hand_Pinky" kp="1" ctrlrange="0.0 0.98175" />
-    <position name="left_hand_Finger_Spread_actuator" joint="left_hand_Finger_Spread" kp="1" ctrlrange="-0.5829 0.0" />
+    <position name="left_hand_Thumb_Flexion_actuator" joint="left_hand_Thumb_Flexion" kp="1" forcerange="-1 1" ctrlrange="-0.9704 0.0" />
+    <position name="left_hand_Thumb_Opposition_actuator" joint="left_hand_Thumb_Opposition" kp="1" forcerange="-1 1" ctrlrange="0.0 0.9879" />
+    <position name="left_hand_Index_Finger_Distal_actuator" joint="left_hand_Index_Finger_Distal" kp="1" forcerange="-1 1" ctrlrange="0 1.334" />
+    <position name="left_hand_Index_Finger_Proximal_actuator" joint="left_hand_Index_Finger_Proximal" kp="1" forcerange="-1 1" ctrlrange="0.0 0.79849" />
+    <position name="left_hand_Middle_Finger_Proximal_actuator" joint="left_hand_Middle_Finger_Proximal" kp="1" forcerange="-1 1" ctrlrange="0.0 0.79849" />
+    <position name="left_hand_Middle_Finger_Distal_actuator" joint="left_hand_Middle_Finger_Distal" kp="1" forcerange="-1 1" ctrlrange="0 1.334" />
+    <position name="left_hand_Ring_Finger_actuator" joint="left_hand_Ring_Finger" kp="1" forcerange="-1 1" ctrlrange="0.0 0.98175" />
+    <position name="left_hand_Pinky_actuator" joint="left_hand_Pinky" kp="1" forcerange="-1 1" ctrlrange="0.0 0.98175" />
+    <position name="left_hand_Finger_Spread_actuator" joint="left_hand_Finger_Spread" kp="1" forcerange="-1 1" ctrlrange="-0.5829 0.0" />
   </actuator>
 </mujoco>

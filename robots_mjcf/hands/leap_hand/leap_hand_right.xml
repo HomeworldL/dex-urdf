@@ -221,21 +221,21 @@
   </contact>
   <equality />
   <actuator>
-    <position name="0_actuator" joint="0" kp="1" ctrlrange="-1.047 1.047" />
-    <position name="1_actuator" joint="1" kp="1" ctrlrange="-0.314 2.23" />
-    <position name="2_actuator" joint="2" kp="1" ctrlrange="-0.506 1.885" />
-    <position name="3_actuator" joint="3" kp="1" ctrlrange="-0.366 2.042" />
-    <position name="4_actuator" joint="4" kp="1" ctrlrange="-1.047 1.047" />
-    <position name="5_actuator" joint="5" kp="1" ctrlrange="-0.314 2.23" />
-    <position name="6_actuator" joint="6" kp="1" ctrlrange="-0.506 1.885" />
-    <position name="7_actuator" joint="7" kp="1" ctrlrange="-0.366 2.042" />
-    <position name="8_actuator" joint="8" kp="1" ctrlrange="-1.047 1.047" />
-    <position name="9_actuator" joint="9" kp="1" ctrlrange="-0.314 2.23" />
-    <position name="10_actuator" joint="10" kp="1" ctrlrange="-0.506 1.885" />
-    <position name="11_actuator" joint="11" kp="1" ctrlrange="-0.366 2.042" />
-    <position name="12_actuator" joint="12" kp="1" ctrlrange="-0.349 2.094" />
-    <position name="13_actuator" joint="13" kp="1" ctrlrange="-0.47 2.443" />
-    <position name="14_actuator" joint="14" kp="1" ctrlrange="-1.20 1.90" />
-    <position name="15_actuator" joint="15" kp="1" ctrlrange="-1.34 1.88" />
+    <position name="0_actuator" joint="0" kp="1" forcerange="-1 1" ctrlrange="-1.047 1.047" />
+    <position name="1_actuator" joint="1" kp="1" forcerange="-1 1" ctrlrange="-0.314 2.23" />
+    <position name="2_actuator" joint="2" kp="1" forcerange="-1 1" ctrlrange="-0.506 1.885" />
+    <position name="3_actuator" joint="3" kp="1" forcerange="-1 1" ctrlrange="-0.366 2.042" />
+    <position name="4_actuator" joint="4" kp="1" forcerange="-1 1" ctrlrange="-1.047 1.047" />
+    <position name="5_actuator" joint="5" kp="1" forcerange="-1 1" ctrlrange="-0.314 2.23" />
+    <position name="6_actuator" joint="6" kp="1" forcerange="-1 1" ctrlrange="-0.506 1.885" />
+    <position name="7_actuator" joint="7" kp="1" forcerange="-1 1" ctrlrange="-0.366 2.042" />
+    <position name="8_actuator" joint="8" kp="1" forcerange="-1 1" ctrlrange="-1.047 1.047" />
+    <position name="9_actuator" joint="9" kp="1" forcerange="-1 1" ctrlrange="-0.314 2.23" />
+    <position name="10_actuator" joint="10" kp="1" forcerange="-1 1" ctrlrange="-0.506 1.885" />
+    <position name="11_actuator" joint="11" kp="1" forcerange="-1 1" ctrlrange="-0.366 2.042" />
+    <position name="12_actuator" joint="12" kp="1" forcerange="-1 1" ctrlrange="-0.349 2.094" />
+    <position name="13_actuator" joint="13" kp="1" forcerange="-1 1" ctrlrange="-0.47 2.443" />
+    <position name="14_actuator" joint="14" kp="1" forcerange="-1 1" ctrlrange="-1.20 1.90" />
+    <position name="15_actuator" joint="15" kp="1" forcerange="-1 1" ctrlrange="-1.34 1.88" />
   </actuator>
 </mujoco>

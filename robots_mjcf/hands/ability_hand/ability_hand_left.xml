@@ -172,11 +172,11 @@
     <joint name="pinky_q2_mimic" joint1="pinky_q2" joint2="pinky_q1" polycoef="0.72349796 1.05851325 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
   </equality>
   <actuator>
-    <position name="thumb_q1_actuator" joint="thumb_q1" kp="1" ctrlrange="-2.0943951 0" />
-    <position name="thumb_q2_actuator" joint="thumb_q2" kp="1" ctrlrange="0 2.0943951" />
-    <position name="index_q1_actuator" joint="index_q1" kp="1" ctrlrange="0 2.0943951" />
-    <position name="middle_q1_actuator" joint="middle_q1" kp="1" ctrlrange="0 2.0943951" />
-    <position name="ring_q1_actuator" joint="ring_q1" kp="1" ctrlrange="0 2.0943951" />
-    <position name="pinky_q1_actuator" joint="pinky_q1" kp="1" ctrlrange="0 2.0943951" />
+    <position name="thumb_q1_actuator" joint="thumb_q1" kp="1" forcerange="-1 1" ctrlrange="-2.0943951 0" />
+    <position name="thumb_q2_actuator" joint="thumb_q2" kp="1" forcerange="-1 1" ctrlrange="0 2.0943951" />
+    <position name="index_q1_actuator" joint="index_q1" kp="1" forcerange="-1 1" ctrlrange="0 2.0943951" />
+    <position name="middle_q1_actuator" joint="middle_q1" kp="1" forcerange="-1 1" ctrlrange="0 2.0943951" />
+    <position name="ring_q1_actuator" joint="ring_q1" kp="1" forcerange="-1 1" ctrlrange="0 2.0943951" />
+    <position name="pinky_q1_actuator" joint="pinky_q1" kp="1" forcerange="-1 1" ctrlrange="0 2.0943951" />
   </actuator>
 </mujoco>

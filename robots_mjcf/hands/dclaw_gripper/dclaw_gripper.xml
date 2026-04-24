@@ -121,14 +121,14 @@
   </contact>
   <equality />
   <actuator>
-    <position name="joint_f1_0_actuator" joint="joint_f1_0" kp="1" ctrlrange="-0.524 1.32" />
-    <position name="joint_f1_1_actuator" joint="joint_f1_1" kp="1" ctrlrange="-1.57 1.57" />
-    <position name="joint_f1_2_actuator" joint="joint_f1_2" kp="1" ctrlrange="-1.57 1.57" />
-    <position name="joint_f2_0_actuator" joint="joint_f2_0" kp="1" ctrlrange="-1.32 0.524" />
-    <position name="joint_f2_1_actuator" joint="joint_f2_1" kp="1" ctrlrange="-1.57 1.57" />
-    <position name="joint_f2_2_actuator" joint="joint_f2_2" kp="1" ctrlrange="-1.57 1.57" />
-    <position name="joint_f3_0_actuator" joint="joint_f3_0" kp="1" ctrlrange="-1.32 0.524" />
-    <position name="joint_f3_1_actuator" joint="joint_f3_1" kp="1" ctrlrange="-1.57 1.57" />
-    <position name="joint_f3_2_actuator" joint="joint_f3_2" kp="1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f1_0_actuator" joint="joint_f1_0" kp="1" forcerange="-1 1" ctrlrange="-0.524 1.32" />
+    <position name="joint_f1_1_actuator" joint="joint_f1_1" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f1_2_actuator" joint="joint_f1_2" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f2_0_actuator" joint="joint_f2_0" kp="1" forcerange="-1 1" ctrlrange="-1.32 0.524" />
+    <position name="joint_f2_1_actuator" joint="joint_f2_1" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f2_2_actuator" joint="joint_f2_2" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f3_0_actuator" joint="joint_f3_0" kp="1" forcerange="-1 1" ctrlrange="-1.32 0.524" />
+    <position name="joint_f3_1_actuator" joint="joint_f3_1" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
+    <position name="joint_f3_2_actuator" joint="joint_f3_2" kp="1" forcerange="-1 1" ctrlrange="-1.57 1.57" />
   </actuator>
 </mujoco>

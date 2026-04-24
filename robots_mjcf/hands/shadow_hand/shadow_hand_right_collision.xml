@@ -218,29 +218,29 @@
   </contact>
   <equality />
   <actuator>
-    <position name="WRJ2_actuator" joint="WRJ2" kp="1" ctrlrange="-0.523598775598 0.174532925199" />
-    <position name="WRJ1_actuator" joint="WRJ1" kp="1" ctrlrange="-0.698131700798 0.488692190558" />
-    <position name="FFJ4_actuator" joint="FFJ4" kp="1" ctrlrange="-0.349065850399 0.349065850399" />
-    <position name="FFJ3_actuator" joint="FFJ3" kp="1" ctrlrange="-0.261799387799 1.57079632679" />
-    <position name="FFJ2_actuator" joint="FFJ2" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="FFJ1_actuator" joint="FFJ1" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="MFJ4_actuator" joint="MFJ4" kp="1" ctrlrange="-0.349065850399 0.349065850399" />
-    <position name="MFJ3_actuator" joint="MFJ3" kp="1" ctrlrange="-0.261799387799 1.57079632679" />
-    <position name="MFJ2_actuator" joint="MFJ2" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="MFJ1_actuator" joint="MFJ1" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="RFJ4_actuator" joint="RFJ4" kp="1" ctrlrange="-0.349065850399 0.349065850399" />
-    <position name="RFJ3_actuator" joint="RFJ3" kp="1" ctrlrange="-0.261799387799 1.57079632679" />
-    <position name="RFJ2_actuator" joint="RFJ2" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="RFJ1_actuator" joint="RFJ1" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="LFJ5_actuator" joint="LFJ5" kp="1" ctrlrange="0 0.785398163397" />
-    <position name="LFJ4_actuator" joint="LFJ4" kp="1" ctrlrange="-0.349065850399 0.349065850399" />
-    <position name="LFJ3_actuator" joint="LFJ3" kp="1" ctrlrange="-0.261799387799 1.57079632679" />
-    <position name="LFJ2_actuator" joint="LFJ2" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="LFJ1_actuator" joint="LFJ1" kp="1" ctrlrange="0 1.57079632679" />
-    <position name="THJ5_actuator" joint="THJ5" kp="1" ctrlrange="-1.0471975512 1.0471975512" />
-    <position name="THJ4_actuator" joint="THJ4" kp="1" ctrlrange="0.0 1.2217304764" />
-    <position name="THJ3_actuator" joint="THJ3" kp="1" ctrlrange="-0.209439510239 0.209439510239" />
-    <position name="THJ2_actuator" joint="THJ2" kp="1" ctrlrange="-0.698131700798 0.698131700798" />
-    <position name="THJ1_actuator" joint="THJ1" kp="1" ctrlrange="-0.261799387799 1.57079632679" />
+    <position name="WRJ2_actuator" joint="WRJ2" kp="1" forcerange="-1 1" ctrlrange="-0.523598775598 0.174532925199" />
+    <position name="WRJ1_actuator" joint="WRJ1" kp="1" forcerange="-1 1" ctrlrange="-0.698131700798 0.488692190558" />
+    <position name="FFJ4_actuator" joint="FFJ4" kp="1" forcerange="-1 1" ctrlrange="-0.349065850399 0.349065850399" />
+    <position name="FFJ3_actuator" joint="FFJ3" kp="1" forcerange="-1 1" ctrlrange="-0.261799387799 1.57079632679" />
+    <position name="FFJ2_actuator" joint="FFJ2" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="FFJ1_actuator" joint="FFJ1" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="MFJ4_actuator" joint="MFJ4" kp="1" forcerange="-1 1" ctrlrange="-0.349065850399 0.349065850399" />
+    <position name="MFJ3_actuator" joint="MFJ3" kp="1" forcerange="-1 1" ctrlrange="-0.261799387799 1.57079632679" />
+    <position name="MFJ2_actuator" joint="MFJ2" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="MFJ1_actuator" joint="MFJ1" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="RFJ4_actuator" joint="RFJ4" kp="1" forcerange="-1 1" ctrlrange="-0.349065850399 0.349065850399" />
+    <position name="RFJ3_actuator" joint="RFJ3" kp="1" forcerange="-1 1" ctrlrange="-0.261799387799 1.57079632679" />
+    <position name="RFJ2_actuator" joint="RFJ2" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="RFJ1_actuator" joint="RFJ1" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="LFJ5_actuator" joint="LFJ5" kp="1" forcerange="-1 1" ctrlrange="0 0.785398163397" />
+    <position name="LFJ4_actuator" joint="LFJ4" kp="1" forcerange="-1 1" ctrlrange="-0.349065850399 0.349065850399" />
+    <position name="LFJ3_actuator" joint="LFJ3" kp="1" forcerange="-1 1" ctrlrange="-0.261799387799 1.57079632679" />
+    <position name="LFJ2_actuator" joint="LFJ2" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="LFJ1_actuator" joint="LFJ1" kp="1" forcerange="-1 1" ctrlrange="0 1.57079632679" />
+    <position name="THJ5_actuator" joint="THJ5" kp="1" forcerange="-1 1" ctrlrange="-1.0471975512 1.0471975512" />
+    <position name="THJ4_actuator" joint="THJ4" kp="1" forcerange="-1 1" ctrlrange="0.0 1.2217304764" />
+    <position name="THJ3_actuator" joint="THJ3" kp="1" forcerange="-1 1" ctrlrange="-0.209439510239 0.209439510239" />
+    <position name="THJ2_actuator" joint="THJ2" kp="1" forcerange="-1 1" ctrlrange="-0.698131700798 0.698131700798" />
+    <position name="THJ1_actuator" joint="THJ1" kp="1" forcerange="-1 1" ctrlrange="-0.261799387799 1.57079632679" />
   </actuator>
 </mujoco>

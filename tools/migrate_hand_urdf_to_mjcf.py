@@ -40,6 +40,10 @@ MIMIC_JOINT_ATTRS = {
     "armature": "0.0",
     "frictionloss": "0.0",
 }
+MIMIC_EQUALITY_ATTRS = {
+    "solref": "0.002 1",
+    "solimp": "0.9 0.99 0.001",
+}
 
 
 def _joint_limits(urdf_root: ET.Element) -> Dict[str, Tuple[str, str]]:
@@ -206,6 +210,7 @@ def patch_mimic_equalities(mjcf_root: ET.Element, mimic_specs: Iterable[Tuple[st
             joint1=mimic_joint,
             joint2=parent_joint,
             polycoef=f"{offset} {multiplier} 0 0 0",
+            **MIMIC_EQUALITY_ATTRS,
         )
     _replace_child(mjcf_root, "equality", equality)
 

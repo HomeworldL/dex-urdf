@@ -166,10 +166,10 @@
     <exclude name="ex_pinky_L2_pinky_tip" body1="pinky_L2" body2="pinky_tip" />
   </contact>
   <equality>
-    <joint name="index_q2_mimic" joint1="index_q2" joint2="index_q1" polycoef="0.72349796 1.05851325 0 0 0" />
-    <joint name="middle_q2_mimic" joint1="middle_q2" joint2="middle_q1" polycoef="0.72349796 1.05851325 0 0 0" />
-    <joint name="ring_q2_mimic" joint1="ring_q2" joint2="ring_q1" polycoef="0.72349796 1.05851325 0 0 0" />
-    <joint name="pinky_q2_mimic" joint1="pinky_q2" joint2="pinky_q1" polycoef="0.72349796 1.05851325 0 0 0" />
+    <joint name="index_q2_mimic" joint1="index_q2" joint2="index_q1" polycoef="0.72349796 1.05851325 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="middle_q2_mimic" joint1="middle_q2" joint2="middle_q1" polycoef="0.72349796 1.05851325 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="ring_q2_mimic" joint1="ring_q2" joint2="ring_q1" polycoef="0.72349796 1.05851325 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="pinky_q2_mimic" joint1="pinky_q2" joint2="pinky_q1" polycoef="0.72349796 1.05851325 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
   </equality>
   <actuator>
     <position name="thumb_q1_actuator" joint="thumb_q1" kp="1" ctrlrange="-2.0943951 0" />

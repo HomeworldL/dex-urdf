@@ -40,7 +40,7 @@
     <exclude name="ex_panda_hand_panda_rightfinger" body1="panda_hand" body2="panda_rightfinger" />
   </contact>
   <equality>
-    <joint name="panda_finger_joint2_mimic" joint1="panda_finger_joint2" joint2="panda_finger_joint1" polycoef="0 1 0 0 0" />
+    <joint name="panda_finger_joint2_mimic" joint1="panda_finger_joint2" joint2="panda_finger_joint1" polycoef="0 1 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
   </equality>
   <actuator>
     <position name="panda_finger_joint1_actuator" joint="panda_finger_joint1" kp="1" ctrlrange="0.0 0.04" />

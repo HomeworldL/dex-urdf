@@ -272,17 +272,17 @@
     <exclude name="ex_left_hand_s_mftip" body1="left_hand_s" body2="mftip" />
   </contact>
   <equality>
-    <joint name="left_hand_j5_mimic" joint1="left_hand_j5" joint2="left_hand_Thumb_Opposition" polycoef="0 1 0 0 0" />
-    <joint name="left_hand_j3_mimic" joint1="left_hand_j3" joint2="left_hand_Thumb_Flexion" polycoef="0 1.01511 0 0 0" />
-    <joint name="left_hand_j4_mimic" joint1="left_hand_j4" joint2="left_hand_Thumb_Flexion" polycoef="0 1.44889 0 0 0" />
-    <joint name="left_hand_j14_mimic" joint1="left_hand_j14" joint2="left_hand_Index_Finger_Distal" polycoef="0 1.0450 0 0 0" />
-    <joint name="left_hand_j15_mimic" joint1="left_hand_j15" joint2="left_hand_Middle_Finger_Distal" polycoef="0 1.0454 0 0 0" />
-    <joint name="left_hand_j12_mimic" joint1="left_hand_j12" joint2="left_hand_Ring_Finger" polycoef="0 1.3588 0 0 0" />
-    <joint name="left_hand_j16_mimic" joint1="left_hand_j16" joint2="left_hand_Ring_Finger" polycoef="0 1.42093 0 0 0" />
-    <joint name="left_hand_j13_mimic" joint1="left_hand_j13" joint2="left_hand_Pinky" polycoef="0 1.35880 0 0 0" />
-    <joint name="left_hand_j17_mimic" joint1="left_hand_j17" joint2="left_hand_Pinky" polycoef="0 1.42307 0 0 0" />
-    <joint name="left_hand_index_spread_mimic" joint1="left_hand_index_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" />
-    <joint name="left_hand_ring_spread_mimic" joint1="left_hand_ring_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" />
+    <joint name="left_hand_j5_mimic" joint1="left_hand_j5" joint2="left_hand_Thumb_Opposition" polycoef="0 1 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j3_mimic" joint1="left_hand_j3" joint2="left_hand_Thumb_Flexion" polycoef="0 1.01511 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j4_mimic" joint1="left_hand_j4" joint2="left_hand_Thumb_Flexion" polycoef="0 1.44889 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j14_mimic" joint1="left_hand_j14" joint2="left_hand_Index_Finger_Distal" polycoef="0 1.0450 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j15_mimic" joint1="left_hand_j15" joint2="left_hand_Middle_Finger_Distal" polycoef="0 1.0454 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j12_mimic" joint1="left_hand_j12" joint2="left_hand_Ring_Finger" polycoef="0 1.3588 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j16_mimic" joint1="left_hand_j16" joint2="left_hand_Ring_Finger" polycoef="0 1.42093 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j13_mimic" joint1="left_hand_j13" joint2="left_hand_Pinky" polycoef="0 1.35880 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_j17_mimic" joint1="left_hand_j17" joint2="left_hand_Pinky" polycoef="0 1.42307 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_index_spread_mimic" joint1="left_hand_index_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
+    <joint name="left_hand_ring_spread_mimic" joint1="left_hand_ring_spread" joint2="left_hand_Finger_Spread" polycoef="0 0.5 0 0 0" solref="0.002 1" solimp="0.9 0.99 0.001" />
   </equality>
   <actuator>
     <position name="left_hand_Thumb_Flexion_actuator" joint="left_hand_Thumb_Flexion" kp="1" ctrlrange="-0.9704 0.0" />
